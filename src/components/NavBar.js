@@ -22,7 +22,11 @@ function NavBar() {
             {
 =======
             {/*
+<<<<<<< HEAD
 >>>>>>> 609e008 (upd structure)
+=======
+>>>>>>> 42bb386 (upd structure)
+>>>>>>> d09bfb1 (upd structure)
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">

@@ -1,6 +1,7 @@
 import './App.css';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import NavBar from './components/NavBar';
 >>>>>>> 609e008 (upd structure)
@@ -66,6 +67,17 @@ const [absnoprevistas, setAbsnoprevistas] = useState([]);
   },[]);
 >>>>>>> 8312542 (cosa)
 =======
+=======
+=======
+<<<<<<< HEAD
+import NavBar from './NavBar';
+import { useEffect, useState } from 'react';
+import axios from "axios";
+=======
+import NavBar from './components/NavBar';
+>>>>>>> 609e008 (upd structure)
+>>>>>>> 42bb386 (upd structure)
+>>>>>>> d09bfb1 (upd structure)
 
 import NavBar from './components/NavBar';
 import AbsNoPreComponent from './components/AbsNoPreComponent';
