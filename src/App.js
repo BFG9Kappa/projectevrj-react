@@ -1,7 +1,11 @@
 import './App.css';
+<<<<<<< HEAD
 import NavBar from './NavBar';
 import { useEffect, useState } from 'react';
 import axios from "axios";
+=======
+import NavBar from './components/NavBar';
+>>>>>>> 609e008 (upd structure)
 
   
 function App() {
