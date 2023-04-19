@@ -1,4 +1,8 @@
 import './App.css';
+<<<<<<< HEAD
+=======
+import NavBar from './components/NavBar';
+>>>>>>> 609e008 (upd structure)
 
 import NavBar from './components/NavBar';
 import { useEffect, useState } from 'react';

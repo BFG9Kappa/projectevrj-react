@@ -18,7 +18,11 @@ function NavBar() {
             <Nav.Link href="#link">Sortides curriculars</Nav.Link>
             <Nav.Link href="#link">Accedir</Nav.Link>
             <Nav.Link href="#link">Enregistrar</Nav.Link>
+<<<<<<< HEAD
             {
+=======
+            {/*
+>>>>>>> 609e008 (upd structure)
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
