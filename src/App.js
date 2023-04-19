@@ -6,24 +6,28 @@ import axios from "axios";
 function App() {
 
   // Llista absnoprevistes
-  const [llista,setLlistaNoAbs] = useState([]);
+  const [] = useState([]);
   // Error que s'ha produït
   const [error, setError] = useState(null);
-  // Element nou o que s'actualitza 
-  const [item, setItem] = useState({data_absnoprevista:"", _id:"", hores_ausencia:"", motiu_abs: "wate wate", document_justificatiu:""});
-
+  // Element nou o que s'actualitza
+  const [llista,setLlistaNoAbs] = useState({
+    _id:"",
+    data_absnoprevista:"",
+    hores_ausencia:"",
+    motiu_abs: "",
+    document_justificatiu:""
+  });
   
   useEffect( () => {
-
     axios.get('http://localhost:5000/api/absnoprevistes/all')
       .then((response) => {
-          setLlistaNoAbs(response.data);
-          console.log(response.data)
-          }).catch(error => {
-            setError(error);
-          });
-},[]);
-  
+        setLlistaNoAbs(response.data);
+        console.log(response.data)
+      }).catch(error => {
+        setError(error);
+      });
+  },[]);
+
   return (
     <div className="App">
       <NavBar />
