@@ -1,36 +1,31 @@
 import './App.css';
+
 import NavBar from './components/NavBar';
-import { useEffect, useState } from 'react';
-import axios from "axios";
-  
+import AbsNoPreComponent from './components/AbsNoPreComponent';
+import AbsPreComponent from './components/AbsPreComponent';
+import BaixesMedComponent from './components/BaixesMedComponent';
+import SortidesCurComponent from './components/SortidesCurComponent';
+
+document.title = "Projecte M12";
+
 function App() {
 
-  // Llista absnoprevistes
-  const [llista,setLlistaNoAbs] = useState([]);
-  // Error que s'ha produït
-  const [error, setError] = useState(null);
-  // Element nou o que s'actualitza 
-  const [item, setItem] = useState({data_absnoprevista:"", _id:"", hores_ausencia:"", motiu_abs: "wate wate", document_justificatiu:""});
-
-  
-  useEffect( () => {
-
-    axios.get('http://localhost:5000/api/absnoprevistes/all')
-      .then((response) => {
-          setLlistaNoAbs(response.data);
-          console.log(response.data)
-          }).catch(error => {
-            setError(error);
-          });
-},[]);
-  
   return (
     <div className="App">
       <NavBar />
-      <h1>Yeeepa</h1>
-      
+      <div className="container">
+        <h3>Abs no previstes tmp</h3>
+        <AbsNoPreComponent />
+        <h3>Abs previstes tmp</h3>
+        <AbsPreComponent />
+        <h3>Baixes mediques tmp</h3>
+        <BaixesMedComponent />
+        <h3>Sortides curriculars tmp</h3>
+        <SortidesCurComponent />
+      </div>
     </div>
   );
+
 }
 
 export default App;
