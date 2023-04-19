@@ -1,5 +1,6 @@
 import './App.css';
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import NavBar from './components/NavBar';
 >>>>>>> 609e008 (upd structure)
@@ -64,10 +65,19 @@ const [absnoprevistas, setAbsnoprevistas] = useState([]);
       });
   },[]);
 >>>>>>> 8312542 (cosa)
+=======
+
+import NavBar from './components/NavBar';
+import AbsNoPreComponent from './components/AbsNoPreComponent';
+import AbsPreComponent from './components/AbsPreComponent';
+
+function App() {
+>>>>>>> a848aa9 (compos)
 
   return (
     <div className="App">
       <NavBar />
+<<<<<<< HEAD
       {absnoprevistas.map((absnoprevista) => (
       <div key={absnoprevista._id}>
         <p>Data Absnoprevista: {absnoprevista.data_absnoprevista}</p>
@@ -77,8 +87,17 @@ const [absnoprevistas, setAbsnoprevistas] = useState([]);
         <p>Document justificatiu: {absnoprevista.document_justificatiu}</p>
       </div>
     ))}
+=======
+      <div className="container">
+        <h3>Abs no previstes xdd</h3>
+        <AbsNoPreComponent />
+        <h3>Abs pre LOL</h3>
+        <AbsPreComponent />
+      </div>
+>>>>>>> a848aa9 (compos)
     </div>
   );
+
 }
 
 export default App;
