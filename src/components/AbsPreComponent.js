@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function AbsPreComponent() {
-  const [absData, setAbsData] = useState([]);
+  const [absData, setAbsPreData] = useState([]);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/absprevistes/all')
       .then((response) => {
-        setAbsData(response.data);
+        setAbsPreData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -18,11 +18,10 @@ function AbsPreComponent() {
     <div>
       {absData.map((item, index) => (
         <div key={index}>
-          <p>{item._id}</p>
-          <p>{item.data_absnoprevista}</p>
-          <p>{item.hores_ausencia}</p>
-          <p>{item.motiu_abs}</p>
-          <p>{item.document_justificatiu}</p>
+          <p>id: {item._id}</p>
+          <p>data abs: {item.data_absprevista}</p>
+          <p>motiu: {item.motiu_abs}</p>
+          <p>document: {item.document_justificatiu}</p>
         </div>
       ))}
     </div>
