@@ -1,10 +1,12 @@
 import './App.css';
+//import { BrowserRouter, Route } from 'react-router-dom';
 
 import NavBar from './components/NavBar';
 import AbsNoPreComponent from './components/AbsNoPreComponent';
 import AbsPreComponent from './components/AbsPreComponent';
 import BaixesMedComponent from './components/BaixesMedComponent';
 import SortidesCurComponent from './components/SortidesCurComponent';
+//import AbsNoPrePage from './pages/AbsNoPrePage';
 
 document.title = "Projecte M12";
 
