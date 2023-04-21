@@ -1,4 +1,4 @@
-import SortidesCurComponent from './components/SortidesCurComponent';
+import SortidesCurComponent from '../components/SortidesCurComponent';
 import NavBar from '../components/NavBar';
 
 
@@ -10,7 +10,7 @@ function SortidesCurPages() {
     <div className="">
       <NavBar />
       <div className="container">
-        <h3>Abs no previstes tmp</h3>
+        <h3>Sortides Curriculars</h3>
         <SortidesCurComponent />
       </div>
     </div>
