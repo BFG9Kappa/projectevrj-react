@@ -10,6 +10,7 @@ function AbsNoPreComponent() {
     document_justificatiu: '',
     user: ''
   });
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/absnoprevistes/all')
@@ -48,6 +49,16 @@ function AbsNoPreComponent() {
       });
   };
 
+  function handleDelete(id) {
+   
+    axios.delete('http://localhost:5000/api/absnoprevistes/delete/'+id)
+        .then((response) => {            
+            const novaLlista =  AbsNoPreData.filter( (element) => element._id!==id )
+            setAbsNoPreData(novaLlista)
+        }).catch(error => {
+              setError(error);
+        });    
+}
 
   return (
     <div>
@@ -108,6 +119,7 @@ function AbsNoPreComponent() {
           <p>motiu: {item.motiu_abs}</p>
           <p>document: {item.document_justificatiu}</p>
           <p>user: {item.user}</p>
+          <button onClick={() => handleDelete(item._id)}>Eliminar</button>
         </div>
       ))}
     </div>
