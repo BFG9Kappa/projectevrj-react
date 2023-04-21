@@ -49,16 +49,17 @@ function AbsNoPreComponent() {
       });
   };
 
-  function handleDelete(id) {
-   
-    axios.delete('http://localhost:5000/api/absnoprevistes/delete/'+id)
-        .then((response) => {            
-            const novaLlista =  AbsNoPreData.filter( (element) => element._id!==id )
-            setAbsNoPreData(novaLlista)
-        }).catch(error => {
-              setError(error);
-        });    
-}
+const handleDelete = (id) => {
+  axios.delete('http://localhost:5000/api/absnoprevistes/delete/'+id)
+    .then((response) => {
+      console.log(response.data);
+      const novaLlista = AbsNoPreData.filter(item => item._id !== id);
+      setAbsNoPreData(novaLlista);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
   return (
     <div>
@@ -119,7 +120,7 @@ function AbsNoPreComponent() {
           <p>motiu: {item.motiu_abs}</p>
           <p>document: {item.document_justificatiu}</p>
           <p>user: {item.user}</p>
-          <button onClick={() => handleDelete(item._id)}>Eliminar</button>
+        <button onClick={() => handleDelete(item._id)}>Eliminar</button>
         </div>
       ))}
     </div>
