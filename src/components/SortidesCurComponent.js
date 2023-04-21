@@ -8,6 +8,7 @@ function SortidesCurComponent() {
     axios.get('http://localhost:5000/api/sortidescurriculars/all')
       .then((response) => {
         setSortidaData(response.data);
+        console.log(response.data)
       })
       .catch((error) => {
         console.log(error);
