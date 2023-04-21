@@ -14,10 +14,10 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#link">Horari</Nav.Link>
-            <Nav.Link href="#link">Absències previstes</Nav.Link>
-            <Nav.Link href="#link">Absències no previstes</Nav.Link>
-            <Nav.Link href="#link">Baixes mediques</Nav.Link>
-            <Nav.Link href="#link">Sortides curriculars</Nav.Link>
+            <Nav.Link href="/absprevistes">Absències previstes</Nav.Link>
+            <Nav.Link href="/absnoprevistes">Absències no previstes</Nav.Link>
+            <Nav.Link href="/baixesmediques">Baixes mediques</Nav.Link>
+            <Nav.Link href="/sortidescurriculars">Sortides curriculars</Nav.Link>
             <Nav.Link href="#link">Accedir</Nav.Link>
             <Nav.Link href="#link">Enregistrar</Nav.Link>
             {

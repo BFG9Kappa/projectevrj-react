@@ -1,4 +1,4 @@
-import AbsPreComponent from './components/AbsPreComponent';
+import AbsPreComponent from '../components/AbsPreComponent';
 import NavBar from '../components/NavBar';
 
 document.title = "Projecte M12";
@@ -9,7 +9,7 @@ function AbsPrePage() {
     <div className="">
       <NavBar />
       <div className="container">
-        <h3>Abs no previstes tmp</h3>
+        <h3>Abs previstes tmp</h3>
         <AbsPreComponent />
       </div>
     </div>
