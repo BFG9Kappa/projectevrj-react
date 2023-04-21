@@ -5,7 +5,7 @@ function Home() {
   return (
     <div>
       <NavBar />
-      <h1>Bienvenido a la página de inicio</h1>
+      <h1>Benvingut a la pàgina d'inici</h1>
     </div>
   );
 }
