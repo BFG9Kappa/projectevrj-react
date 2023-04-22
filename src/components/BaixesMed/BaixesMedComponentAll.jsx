@@ -20,7 +20,18 @@ function BaixesMedComponent() {
 
   const handleUpdate = "Implementar jaja"; // implementar
 
-  const handleDelete = "Implementar jaja"; // implementar
+  const handleDelete = (id) => {
+    axios
+      .delete("http://localhost:5000/api/baixesmediques/delete/" + id)
+      .then((response) => {
+        console.log(response.data);
+        const novaLlista = baixaData.filter((item) => item._id !== id);
+        setBaixaData(novaLlista);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <>
