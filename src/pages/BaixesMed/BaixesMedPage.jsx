@@ -1,10 +1,7 @@
 import BaixesAll from "../../components/BaixesMed/BaixesMedComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
-
 import Button from 'react-bootstrap/Button';
-
-document.title = "Baixes mèdiques";
 
 function AbsNoPrePage() {
   const history = useHistory();
