@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
-import moment from 'moment';
+import moment from "moment";
 
 function BaixesMedComponent() {
   const [baixaData, setBaixaData] = useState([]);
@@ -23,8 +22,6 @@ function BaixesMedComponent() {
 
   const handleDelete = "Implementar jaja"; // implementar
 
-
-
   return (
     <>
       <Table striped bordered hover>
@@ -42,8 +39,8 @@ function BaixesMedComponent() {
           {baixaData.map((item, index) => (
             <tr key={index}>
               <td>{item._id}</td>
-              <td>{moment(item.data_inicial_baixa).format('DD/MM/YYYY')}</td>
-              <td>{moment(item.data_prevista_alta).format('DD/MM/YYYY')}</td>
+              <td>{moment(item.data_inicial_baixa).format("DD/MM/YYYY")}</td>
+              <td>{moment(item.data_prevista_alta).format("DD/MM/YYYY")}</td>
               <td>{item.comentari}</td>
               <td>{item.user}</td>
               <td>
