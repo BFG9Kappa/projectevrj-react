@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import Table from "react-bootstrap/Table";
+import Button from 'react-bootstrap/Button';
 
 function AbsNoPreComponentAll() {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/absnoprevistes/all')
+    axios
+      .get("http://localhost:5000/api/absnoprevistes/all")
       .then((response) => {
         setAbsNoPreData(response.data);
       })
@@ -14,30 +18,33 @@ function AbsNoPreComponentAll() {
       });
   }, []);
 
-const handleDelete = (id) => {
-  axios.delete('http://localhost:5000/api/absnoprevistes/delete/'+id)
-    .then((response) => {
-      console.log(response.data);
-      const novaLlista = AbsNoPreData.filter(item => item._id !== id);
-      setAbsNoPreData(novaLlista);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-};
+  const handleUpdate = "Implementar jaja"; // implementar
+
+  const handleDelete = (id) => {
+    axios
+      .delete("http://localhost:5000/api/absnoprevistes/delete/" + id)
+      .then((response) => {
+        console.log(response.data);
+        const novaLlista = AbsNoPreData.filter((item) => item._id !== id);
+        setAbsNoPreData(novaLlista);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
-      <table>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>ID</th>
-            <th>Fecha de la ausencia</th>
-            <th>Horas de ausencia</th>
-            <th>Motivo de la ausencia</th>
-            <th>Documento justificativo</th>
-            <th>Usuario</th>
-            <th>Acción</th>
+            <th>Data absencia</th>
+            <th>Hores absencia</th>
+            <th>Motiu</th>
+            <th>Justificant</th>
+            <th>Professor</th>
+            <th>Operacions</th>
           </tr>
         </thead>
         <tbody>
@@ -50,15 +57,14 @@ const handleDelete = (id) => {
               <td>{item.document_justificatiu}</td>
               <td>{item.user}</td>
               <td>
-                <button onClick={() => handleDelete(item._id)}>Eliminar</button>
+                <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{' '}
+                <Button variant="danger" onClick={() => handleDelete(item._id)}>Esborrar</Button>{' '}
               </td>
             </tr>
           ))}
         </tbody>
-      </table>
-      
+      </Table>
     </div>
-  
   );
 }
 
