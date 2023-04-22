@@ -1,16 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function AbsNoPreComponent_All() {
+function AbsNoPreComponentAll() {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
-  const [formData, setFormData] = useState({
-    data_absnoprevista: '',
-    hores_ausencia: '',
-    motiu_abs: '',
-    document_justificatiu: '',
-    user: ''
-  });
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/absnoprevistes/all')
@@ -21,33 +13,6 @@ function AbsNoPreComponent_All() {
         console.log(error);
       });
   }, []);
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    axios.post('http://localhost:5000/api/absnoprevistes/create/', formData)
-      .then((response) => {
-        console.log(response.data);
-        setFormData({
-          data_absnoprevista: '',
-          hores_ausencia: '',
-          motiu_abs: '',
-          document_justificatiu: '',
-          user: ''
-        });
-        setAbsNoPreData([...AbsNoPreData, response.data]);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
 const handleDelete = (id) => {
   axios.delete('http://localhost:5000/api/absnoprevistes/delete/'+id)
@@ -97,4 +62,4 @@ const handleDelete = (id) => {
   );
 }
 
-export default AbsNoPreComponent_All;
+export default AbsNoPreComponentAll;
