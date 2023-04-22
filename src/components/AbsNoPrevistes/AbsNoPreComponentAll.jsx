@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
+import moment from "moment";
 
 function AbsNoPreComponentAll() {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
@@ -51,7 +51,7 @@ function AbsNoPreComponentAll() {
           {AbsNoPreData.map((item) => (
             <tr key={item._id}>
               <td>{item._id}</td>
-              <td>{item.data_absnoprevista}</td>
+              <td>{moment(item.data_absnoprevista).format("DD/MM/YYYY")}</td>
               <td>{item.hores_ausencia}</td>
               <td>{item.motiu_abs}</td>
               <td>{item.document_justificatiu}</td>
