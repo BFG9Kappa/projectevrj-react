@@ -15,11 +15,11 @@ function App() {
       <div className="App">
         <div className="container">
           <Route exact path="/" component={Home} />
-          <Route path="/absprevistes" component={AbsPrePage} />
-          <Route path="/absnoprevistes" component={AbsNoPrePage} />
-          <Route path="/absnoprevistes/new" component={AbsNoPrePageNew} />
-          <Route path="/baixesmediques" component={BaixesMedPage} />
-          <Route path="/sortidescurriculars" component={SortidesCurPage} />
+          <Route exact path="/absprevistes" component={AbsPrePage} />
+          <Route exact path="/absnoprevistes" component={AbsNoPrePage} />
+          <Route exact path="/absnoprevistes/new" component={AbsNoPrePageNew} />
+          <Route exact path="/baixesmediques" component={BaixesMedPage} />
+          <Route exact path="/sortidescurriculars" component={SortidesCurPage} />
         </div>
       </div>
     </BrowserRouter>
