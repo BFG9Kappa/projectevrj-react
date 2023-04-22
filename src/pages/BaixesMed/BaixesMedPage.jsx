@@ -1,28 +1,28 @@
-import AbsNoPreComponentAll from "../../components/AbsNoPrevistes/AbsNoPreComponentAll";
+import BaixesAll from "../../components/BaixesMed/BaixesMedComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
 
-document.title = "Projecte M12";
+document.title = "Baixes mèdiques";
 
 function AbsNoPrePage() {
   const history = useHistory();
 
   const handleNovaClick = (event) => {
     event.preventDefault();
-    history.push("/absnoprevistes/new");
+    history.push("/baixesmediques/new");
   };
 
   return (
-    <div className="">
+    <>
       <NavBar />
       <div className="container">
-        <h3>Absències no previstes</h3>
+        <h3>Llista de baixes mèdiques</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
-        <AbsNoPreComponentAll />
+        <BaixesAll />
       </div>
-    </div>
+    </>
   );
 }
 
