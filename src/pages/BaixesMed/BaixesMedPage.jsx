@@ -17,6 +17,8 @@ function AbsNoPrePage() {
       <div className="container">
         <h3>Llista de baixes mèdiques</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
+        <br />
+        <br />
         <BaixesAll />
       </div>
     </>
