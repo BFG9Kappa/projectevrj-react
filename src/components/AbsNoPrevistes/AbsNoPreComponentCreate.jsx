@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
-function AbsNoPreComponent_Create() {
+function AbsNoPreComponentCreate() {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
   const [formData, setFormData] = useState({
     data_absnoprevista: '',
@@ -10,7 +10,6 @@ function AbsNoPreComponent_Create() {
     document_justificatiu: '',
     user: ''
   });
-  const [error, setError] = useState(null);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -95,4 +94,4 @@ function AbsNoPreComponent_Create() {
   );
 }
 
-export default AbsNoPreComponent_Create;
+export default AbsNoPreComponentCreate;
