@@ -1,7 +1,7 @@
 import NavBar from "../../components/NavBar";
 import SortidesCreate from "../../components/SortidesCur/SortidesCurComponentCreate";
 
-function BaixesMedPageNew() {
+function SortidesCurPageNew() {
   return (
     <div className="">
       <NavBar />
@@ -13,4 +13,4 @@ function BaixesMedPageNew() {
   );
 }
 
-export default BaixesMedPageNew;
+export default SortidesCurPageNew;

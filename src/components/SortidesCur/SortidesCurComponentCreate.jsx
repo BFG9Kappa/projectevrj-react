@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
+// IMPLEMENTAR A PARTIR DE AQUI
 function BaixesMedComponentCreate() {
   const [baixaData, setBaixaData] = useState([]);
   const [formData, setFormData] = useState({
