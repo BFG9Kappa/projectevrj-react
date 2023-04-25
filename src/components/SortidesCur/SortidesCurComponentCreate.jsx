@@ -4,14 +4,19 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-// IMPLEMENTAR A PARTIR DE AQUI
-function BaixesMedComponentCreate() {
-  const [baixaData, setBaixaData] = useState([]);
+function SortidesCurComponentCreate() {
+  const [sortidaData, setSortidaData] = useState([]);
   const [formData, setFormData] = useState({
-    data_inicial_baixa: "",
-    data_prevista_alta: "",
-    comentari: "",
-    user: "",
+    data_sortida: "",
+    email: "",
+    lloc: "",
+    ruta: "",
+    objectius: "",
+    grups: "",
+    professors: "",
+    hora_inici: "",
+    hora_arribada: "",
+    estat: "",
   });
 
   const handleInputChange = (event) => {
@@ -28,13 +33,19 @@ function BaixesMedComponentCreate() {
       .post("http://localhost:5000/api/baixesmediques/create/", formData)
       .then((response) => {
         console.log(response.data);
-        setFormData({
-          data_inicial_baixa: "",
-          data_prevista_alta: "",
-          comentari: "",
-          user: "",
+        setSortidaData({
+          data_sortida: "",
+          email: "",
+          lloc: "",
+          ruta: "",
+          objectius: "",
+          grups: "",
+          professors: "",
+          hora_inici: "",
+          hora_arribada: "",
+          estat: "",
         });
-        setBaixaData([...baixaData, response.data]);
+        setSortidaData([...sortidaData, response.data]);
       })
       .catch((error) => {
         console.log(error);
@@ -45,48 +56,86 @@ function BaixesMedComponentCreate() {
     <>
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data baixa:</InputGroup.Text>
+          <InputGroup.Text>Data sortida</InputGroup.Text>
           <Form.Control
             type="date"
-            name="data_inicial_baixa"
-            value={formData.data_inicial_baixa}
+            name="data_sortida"
+            value={formData.data_sortida}
             onChange={handleInputChange}
           />
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data alta:</InputGroup.Text>
+          <InputGroup.Text>Email</InputGroup.Text>
           <Form.Control
-            type="date"
-            name="data_prevista_alta"
-            value={formData.data_prevista_alta}
+            type="email"
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
           />
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Comentari:</InputGroup.Text>
+          <InputGroup.Text>Lloc</InputGroup.Text>
           <Form.Control
-            as="textarea"
-            name="comentari"
-            value={formData.comentari}
+            as="text"
+            name="lloc"
+            value={formData.lloc}
             onChange={handleInputChange}
           />
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Professor:</InputGroup.Text>
+          <InputGroup.Text>Ruta</InputGroup.Text>
           <Form.Control
             type="text"
-            name="user"
-            value={formData.user}
+            name="ruta"
+            value={formData.ruta}
             onChange={handleInputChange}
           />
         </InputGroup>
+
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Objectius</InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="objectius"
+            value={formData.objectius}
+            onChange={handleInputChange}
+          />
+        </InputGroup>
+
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Grups</InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="grups"
+            value={formData.grups}
+            onChange={handleInputChange}
+          />
+        </InputGroup>
+
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Professors</InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="professors"
+            value={formData.professors}
+            onChange={handleInputChange}
+          />
+        </InputGroup>
+
+        <Form.Select aria-label="Default select example">
+        <option>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+        </Form.Select>
+
         <Button type="submit">Enviar</Button>
       </Form>
     </>
   );
 }
 
-export default BaixesMedComponentCreate;
+export default SortidesCurComponentCreate;

@@ -44,7 +44,7 @@ function BaixesMedComponentCreate() {
     <>
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data baixa:</InputGroup.Text>
+          <InputGroup.Text>Data baixa</InputGroup.Text>
           <Form.Control
             type="date"
             name="data_inicial_baixa"
@@ -54,7 +54,7 @@ function BaixesMedComponentCreate() {
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data alta:</InputGroup.Text>
+          <InputGroup.Text>Data alta</InputGroup.Text>
           <Form.Control
             type="date"
             name="data_prevista_alta"
@@ -64,7 +64,7 @@ function BaixesMedComponentCreate() {
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Comentari:</InputGroup.Text>
+          <InputGroup.Text>Comentari</InputGroup.Text>
           <Form.Control
             as="textarea"
             name="comentari"
@@ -74,7 +74,7 @@ function BaixesMedComponentCreate() {
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Professor:</InputGroup.Text>
+          <InputGroup.Text>Professor</InputGroup.Text>
           <Form.Control
             type="text"
             name="user"
