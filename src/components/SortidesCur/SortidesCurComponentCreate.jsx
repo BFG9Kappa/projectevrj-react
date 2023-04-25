@@ -78,7 +78,7 @@ function SortidesCurComponentCreate() {
         <InputGroup className="mb-2">
           <InputGroup.Text>Lloc</InputGroup.Text>
           <Form.Control
-            as="text"
+            type="text"
             name="lloc"
             value={formData.lloc}
             onChange={handleInputChange}
