@@ -1,28 +1,28 @@
-import BaixesAll from "../../components/BaixesMed/BaixesMedComponentAll";
+import SortidesAll from "../../components/SortidesCur/SortidesCurComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
-function AbsNoPrePage() {
+function SortidesCurPage() {
   const history = useHistory();
 
   const handleNovaClick = (event) => {
     event.preventDefault();
-    history.push("/baixesmediques/new");
+    history.push("/sortidescurriculars/new");
   };
 
   return (
     <>
       <NavBar />
       <div className="container">
-        <h3>Llista de baixes mèdiques</h3>
+        <h3>Llista de sortides curriculars</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <br />
         <br />
-        <BaixesAll />
+        <SortidesAll />
       </div>
     </>
   );
 }
 
-export default AbsNoPrePage;
+export default SortidesCurPage;
