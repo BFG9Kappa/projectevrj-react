@@ -5,7 +5,7 @@ import Button from "react-bootstrap/Button";
 import moment from "moment";
 
 function SortidesCurComponent() {
-  const [sortidaData, setSortidaData] = useState([]);
+  const [SortidaData, setSortidaData] = useState([]);
 
   useEffect(() => {
     axios
@@ -25,7 +25,7 @@ function SortidesCurComponent() {
       .delete("http://localhost:5000/api/sortidescurriculars/delete/" + id)
       .then((response) => {
         console.log(response.data);
-        const novaLlista = sortidaData.filter((item) => item._id !== id);
+        const novaLlista = SortidaData.filter((item) => item._id !== id);
         setSortidaData(novaLlista);
       })
       .catch((error) => {
@@ -54,7 +54,7 @@ function SortidesCurComponent() {
           </tr>
         </thead>
         <tbody>
-          {sortidaData.map((item, index) => (
+          {SortidaData.map((item, index) => (
             <tr key={index}>
               {/*
               <td>{item._id}</td>

@@ -17,6 +17,8 @@ function AbsNoPrePage() {
       <div className="container">
         <h3>Absències no previstes</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
+        <br />
+        <br />
         <AbsNoPreComponentAll />
       </div>
     </>
