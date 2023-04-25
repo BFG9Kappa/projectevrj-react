@@ -19,6 +19,14 @@ function SortidesCurComponentCreate() {
     estat: "",
   });
 
+  const handleSelectChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
@@ -30,10 +38,10 @@ function SortidesCurComponentCreate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/baixesmediques/create/", formData)
+      .post("http://localhost:5000/api/sortidescurriculars/create/", formData)
       .then((response) => {
         console.log(response.data);
-        setSortidaData({
+        setFormData({
           data_sortida: "",
           email: "",
           lloc: "",
@@ -125,12 +133,59 @@ function SortidesCurComponentCreate() {
           />
         </InputGroup>
 
-        <Form.Select aria-label="Default select example">
-        <option>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <Form.Select
+          name="hora_inici"
+          aria-label="hora_inici"
+          value={formData.hora_inici}
+          onChange={handleSelectChange}
+        >
+          <option>Hora de sortida</option>
+          <option value="08:00">08:00</option>
+          <option value="09:00">09:00</option>
+          <option value="10:00">10:00</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:30">12:30</option>
+          <option value="13:30">13:30</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:30">19:30</option>
+          <option value="20:30">20:30</option>
         </Form.Select>
+
+        <Form.Select
+          name="hora_arribada"
+          aria-label="hora_arribada"
+          value={formData.hora_arribada}
+          onChange={handleSelectChange}
+        >
+          <option>Hora d'arribada</option>
+          <option value="08:00">08:00</option>
+          <option value="09:00">09:00</option>
+          <option value="10:00">10:00</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
+          <option value="12:30">12:30</option>
+          <option value="13:30">13:30</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:30">18:30</option>
+          <option value="19:30">19:30</option>
+          <option value="20:30">20:30</option>
+        </Form.Select>
+
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Estat</InputGroup.Text>
+          <Form.Control
+            type="text"
+            name="estat"
+            value={formData.estat}
+            onChange={handleInputChange}
+          />
+        </InputGroup>
 
         <Button type="submit">Enviar</Button>
       </Form>
