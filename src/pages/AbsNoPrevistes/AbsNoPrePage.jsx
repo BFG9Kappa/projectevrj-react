@@ -1,10 +1,7 @@
 import AbsNoPreComponentAll from "../../components/AbsNoPrevistes/AbsNoPreComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
-
 import Button from 'react-bootstrap/Button';
-
-document.title = "Projecte M12";
 
 function AbsNoPrePage() {
   const history = useHistory();
@@ -15,14 +12,14 @@ function AbsNoPrePage() {
   };
 
   return (
-    <div className="">
+    <>
       <NavBar />
       <div className="container">
         <h3>Absències no previstes</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <AbsNoPreComponentAll />
       </div>
-    </div>
+    </>
   );
 }
 

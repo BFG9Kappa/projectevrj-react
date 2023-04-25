@@ -39,8 +39,7 @@ function AbsNoPreComponentCreate() {
   };
 
   return (
-    <div>
-
+    <>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Data absència no prevista:</label>
@@ -89,8 +88,7 @@ function AbsNoPreComponentCreate() {
         </div>
         <button type="submit">Crear Absència</button>
       </form>
-    </div>
-  
+    </>
   );
 }
 

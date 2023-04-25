@@ -34,7 +34,7 @@ function AbsNoPreComponentAll() {
   };
 
   return (
-    <div>
+    <>
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -71,7 +71,7 @@ function AbsNoPreComponentAll() {
           ))}
         </tbody>
       </Table>
-    </div>
+    </>
   );
 }
 
