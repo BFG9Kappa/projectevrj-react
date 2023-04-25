@@ -38,7 +38,9 @@ function BaixesMedComponent() {
       <Table striped bordered hover>
         <thead>
           <tr>
+            {/*
             <th>ID</th>
+            */}
             <th>Data baixa</th>
             <th>Data alta</th>
             <th>Comentari</th>
@@ -49,7 +51,9 @@ function BaixesMedComponent() {
         <tbody>
           {baixaData.map((item, index) => (
             <tr key={index}>
+              {/*
               <td>{item._id}</td>
+              */}
               <td>{moment(item.data_inicial_baixa).format("DD/MM/YYYY")}</td>
               <td>{moment(item.data_prevista_alta).format("DD/MM/YYYY")}</td>
               <td>{item.comentari}</td>

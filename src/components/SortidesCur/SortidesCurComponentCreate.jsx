@@ -19,7 +19,7 @@ function SortidesCurComponentCreate() {
     estat: "",
   });
 
-  const handleSelectChange = (event) => {
+  const handleInputChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
@@ -27,7 +27,8 @@ function SortidesCurComponentCreate() {
     });
   };
 
-  const handleInputChange = (event) => {
+  // Per manejar els selects
+  const handleSelectChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
