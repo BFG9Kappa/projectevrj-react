@@ -35,15 +35,42 @@ function AbsPreComponent() {
 
   return (
     <>
-      {AbsPreData.map((item, index) => (
-        <div key={index}>
-          <p>id: {item._id}</p>
-          <p>data abs: {item.data_absprevista}</p>
-          <p>motiu: {item.motiu_abs}</p>
-          <p>document: {item.document_justificatiu}</p>
-          <p>user: {item.user}</p>
-        </div>
-      ))}
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            {/*
+            <th>ID</th>
+            */}
+            <th>Data</th>
+            <th>Motiu</th>
+            <th>Professor</th>
+            <th>Operacions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {AbsPreData.map((item, index) => (
+            <tr key={index}>
+              {/*
+              <td>{item._id}</td>
+              */}
+              <td>{moment(item.data_absprevista).format("DD/MM/YYYY")}</td>
+              <td>{item.motiu_abs}</td>
+              <td>{item.user}</td>
+              <td>
+                <Button
+                  variant="primary"
+                  onClick={() => handleUpdate(item._id)}
+                >
+                  Editar
+                </Button>{" "}
+                <Button variant="danger" onClick={() => handleDelete(item._id)}>
+                  Esborrar
+                </Button>{" "}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </>
   );
 }
