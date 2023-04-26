@@ -9,7 +9,7 @@ function AbsNoPrePageNew() {
     <>
       <NavBar />
       <div className="container">
-        <h3>Absències no previstes new</h3>
+        <h3>Nova absència no prevista</h3>
         {validationErrors.length > 0 && (
           <div className="alert alert-danger">
             <ul>
