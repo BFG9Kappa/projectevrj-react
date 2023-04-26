@@ -55,8 +55,9 @@ function AbsNoPreComponentAll() {
             {/*
             <th>ID</th>
             */}
-            <th>Data absencia</th>
-            <th>Hores absencia</th>
+            <th>Data absència</th>
+            <th>Hora inici absència</th>
+            <th>Hora fi absència</th>
             <th>Motiu</th>
             <th>Justificant</th>
             <th>Professor</th>
@@ -70,7 +71,8 @@ function AbsNoPreComponentAll() {
               <td>{item._id}</td>
               */}
               <td>{moment(item.data_absnoprevista).format("DD/MM/YYYY")}</td>
-              <td>{item.hores_ausencia}</td>
+              <td>{item.hora_inici_absnoprevista}</td>
+              <td>{item.hora_final_absnoprevista}</td>
               <td>{item.motiu_abs}</td>
               <td>{item.document_justificatiu}</td>
               <td>{item.user}</td>
