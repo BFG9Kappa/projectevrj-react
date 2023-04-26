@@ -1,28 +1,28 @@
-import AbsNoPreComponentAll from "../../components/AbsNoPrevistes/AbsNoPreComponentAll";
+import AbsPreAll from "../../components/AbsPrevistes/AbsPreComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
-function AbsNoPrePage() {
+function AbsPrePage() {
   const history = useHistory();
 
   const handleNovaClick = (event) => {
     event.preventDefault();
-    history.push("/absnoprevistes/new");
+    history.push("/absprevistes/new");
   };
 
   return (
     <>
       <NavBar />
       <div className="container">
-        <h3>Llista d'absències no previstes</h3>
+        <h3>Llista de absències previstes</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <br />
         <br />
-        <AbsNoPreComponentAll />
+        <AbsPreAll />
       </div>
     </>
   );
 }
 
-export default AbsNoPrePage;
+export default AbsPrePage;

@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
 
 function AbsNoPreComponentCreate({ setValidationErrors }) {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
@@ -16,13 +19,14 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
     const { name, value } = event.target;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post('http://localhost:5000/api/absnoprevistes/create/', formData)
+    axios
+      .post("http://localhost:5000/api/absnoprevistes/create/", formData)
       .then((response) => {
         console.log(response.data);
         setFormData({
@@ -46,12 +50,12 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
   };
 
   return (
-    <div>
+    <>
+      <Form onSubmit={handleSubmit}>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Data absència no prevista:</label>
-          <input
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Data absència</InputGroup.Text>
+          <Form.Control
             type="date"
             name="data_absnoprevista"
             value={formData.data_absnoprevista}
@@ -105,20 +109,21 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
             value={formData.document_justificatiu}
             onChange={handleInputChange}
           />
-        </div>
-        <div>
-          <label>Usuari:</label>
-          <input
+        </InputGroup>
+
+        <InputGroup className="mb-2">
+          <InputGroup.Text>Professor</InputGroup.Text>
+          <Form.Control
             type="text"
             name="user"
             value={formData.user}
             onChange={handleInputChange}
           />
-        </div>
-        <button type="submit">Crear Absència</button>
-      </form>
-    </div>
-  
+        </InputGroup>
+
+        <Button type="submit">Enviar</Button>
+      </Form>
+    </>
   );
 }
 

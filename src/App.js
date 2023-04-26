@@ -1,7 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AbsPrePage from "./pages/AbsPrePage";
+import AbsPrePage from "./pages/AbsPrevistes/AbsPrePage";
+import AbsPrePageNew from "./pages/AbsPrevistes/AbsPrePageNew";
 import AbsNoPrePage from "./pages/AbsNoPrevistes/AbsNoPrePage";
 import AbsNoPrePageNew from "./pages/AbsNoPrevistes/AbsNoPrePageNew";
 import BaixesMedPage from "./pages/BaixesMed/BaixesMedPage";
@@ -18,6 +19,7 @@ function App() {
         <div className="container">
           <Route exact path="/" component={Home} />
           <Route exact path="/absprevistes" component={AbsPrePage} />
+          <Route exact path="/absprevistes/new" component={AbsPrePageNew} />
           <Route exact path="/absnoprevistes" component={AbsNoPrePage} />
           <Route exact path="/absnoprevistes/new" component={AbsNoPrePageNew} />
           <Route exact path="/baixesmediques" component={BaixesMedPage} />

@@ -4,14 +4,14 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 
-function AbsNoPreComponentAll() {
-  const [AbsNoPreData, setAbsNoPreData] = useState([]);
+function AbsPreComponent() {
+  const [AbsPreData, setAbsPreData] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/absnoprevistes/all")
+      .get("http://localhost:5000/api/absprevistes/all")
       .then((response) => {
-        setAbsNoPreData(response.data);
+        setAbsPreData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -22,11 +22,11 @@ function AbsNoPreComponentAll() {
 
   const handleDelete = (id) => {
     axios
-      .delete("http://localhost:5000/api/absnoprevistes/delete/" + id)
+      .delete("http://localhost:5000/api/absprevistes/delete/" + id)
       .then((response) => {
         console.log(response.data);
-        const novaLlista = AbsNoPreData.filter((item) => item._id !== id);
-        setAbsNoPreData(novaLlista);
+        const novaLlista = AbsPreData.filter((item) => item._id !== id);
+        setAbsPreData(novaLlista);
       })
       .catch((error) => {
         console.log(error);
@@ -38,23 +38,23 @@ function AbsNoPreComponentAll() {
       <Table striped bordered hover>
         <thead>
           <tr>
+            {/*
             <th>ID</th>
-            <th>Data absencia</th>
-            <th>Hores absencia</th>
+            */}
+            <th>Data</th>
             <th>Motiu</th>
-            <th>Justificant</th>
             <th>Professor</th>
             <th>Operacions</th>
           </tr>
         </thead>
         <tbody>
-          {AbsNoPreData.map((item) => (
-            <tr key={item._id}>
+          {AbsPreData.map((item, index) => (
+            <tr key={index}>
+              {/*
               <td>{item._id}</td>
-              <td>{moment(item.data_absnoprevista).format("DD/MM/YYYY")}</td>
-              <td>{item.hores_ausencia}</td>
+              */}
+              <td>{moment(item.data_absprevista).format("DD/MM/YYYY")}</td>
               <td>{item.motiu_abs}</td>
-              <td>{item.document_justificatiu}</td>
               <td>{item.user}</td>
               <td>
                 <Button
@@ -75,4 +75,4 @@ function AbsNoPreComponentAll() {
   );
 }
 
-export default AbsNoPreComponentAll;
+export default AbsPreComponent;

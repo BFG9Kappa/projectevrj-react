@@ -6,7 +6,7 @@ function AbsNoPrePageNew() {
   const [validationErrors, setValidationErrors] = useState([]);
 
   return (
-    <div className="">
+    <>
       <NavBar />
       <div className="container">
         <h3>Absències no previstes new</h3>
@@ -21,7 +21,7 @@ function AbsNoPrePageNew() {
         )}
         <AbsNoPreComponentCreate setValidationErrors={setValidationErrors} />
       </div>
-    </div>
+    </>
   );
 }
 
