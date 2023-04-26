@@ -38,7 +38,9 @@ function AbsNoPreComponentAll() {
       <Table striped bordered hover>
         <thead>
           <tr>
+            {/*
             <th>ID</th>
+            */}
             <th>Data absencia</th>
             <th>Hores absencia</th>
             <th>Motiu</th>
@@ -50,7 +52,9 @@ function AbsNoPreComponentAll() {
         <tbody>
           {AbsNoPreData.map((item) => (
             <tr key={item._id}>
+              {/*
               <td>{item._id}</td>
+              */}
               <td>{moment(item.data_absnoprevista).format("DD/MM/YYYY")}</td>
               <td>{item.hores_ausencia}</td>
               <td>{item.motiu_abs}</td>
