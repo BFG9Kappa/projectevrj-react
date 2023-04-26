@@ -15,7 +15,7 @@ function AbsNoPrePage() {
     <>
       <NavBar />
       <div className="container">
-        <h3>Absències no previstes</h3>
+        <h3>Llista d'absències no previstes</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <br />
         <br />
