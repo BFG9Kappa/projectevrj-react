@@ -4,13 +4,12 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-function AbsNoPreComponentCreate() {
-  const [AbsNoPreData, setAbsNoPreData] = useState([]);
+function AbsPreComponentCreate() {
+  
+  const [AbsPrevistaData, setAbsPrevistaData] = useState([]);
   const [formData, setFormData] = useState({
-    data_absnoprevista: "",
-    hores_ausencia: "",
+    data_absprevista: "",
     motiu_abs: "",
-    document_justificatiu: "",
     user: "",
   });
 
@@ -25,17 +24,15 @@ function AbsNoPreComponentCreate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("http://localhost:5000/api/absnoprevistes/create/", formData)
+      .post("http://localhost:5000/api/absprevistes/create/", formData)
       .then((response) => {
         console.log(response.data);
         setFormData({
-          data_absnoprevista: "",
-          hores_ausencia: "",
+          data_absprevista: "",
           motiu_abs: "",
-          document_justificatiu: "",
           user: "",
         });
-        setAbsNoPreData([...AbsNoPreData, response.data]);
+        setAbsPrevistaData([...AbsPrevistaData, response.data]);
       })
       .catch((error) => {
         console.log(error);
@@ -45,23 +42,12 @@ function AbsNoPreComponentCreate() {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-
         <InputGroup className="mb-2">
           <InputGroup.Text>Data absència</InputGroup.Text>
           <Form.Control
             type="date"
-            name="data_absnoprevista"
-            value={formData.data_absnoprevista}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Hores d'absència</InputGroup.Text>
-          <Form.Control
-            type="number"
-            name="hores_ausencia"
-            value={formData.hores_ausencia}
+            name="data_absprevista"
+            value={formData.data_absprevista}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -72,16 +58,6 @@ function AbsNoPreComponentCreate() {
             as="textarea"
             name="motiu_abs"
             value={formData.motiu_abs}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Document justificatiu</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="document_justificatiu"
-            value={formData.document_justificatiu}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -100,6 +76,7 @@ function AbsNoPreComponentCreate() {
       </Form>
     </>
   );
+
 }
 
-export default AbsNoPreComponentCreate;
+export default AbsPreComponentCreate;

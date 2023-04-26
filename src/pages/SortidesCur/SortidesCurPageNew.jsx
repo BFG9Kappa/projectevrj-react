@@ -3,13 +3,13 @@ import SortidesCreate from "../../components/SortidesCur/SortidesCurComponentCre
 
 function SortidesCurPageNew() {
   return (
-    <div className="">
+    <>
       <NavBar />
       <div className="container">
         <h3>Nova sortida curricular</h3>
         <SortidesCreate />
       </div>
-    </div>
+    </>
   );
 }
 

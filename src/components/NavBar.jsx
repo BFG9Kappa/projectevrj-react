@@ -1,9 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+//import NavDropdown from 'react-bootstrap/NavDropdown';
 //import { Link } from 'react';
-
 
 function NavBar() {
   return (
@@ -16,11 +15,11 @@ function NavBar() {
             <Nav.Link href="#link">Horari</Nav.Link>
             <Nav.Link href="/absprevistes">Absències previstes</Nav.Link>
             <Nav.Link href="/absnoprevistes">Absències no previstes</Nav.Link>
-            <Nav.Link href="/baixesmediques">Baixes mediques</Nav.Link>
+            <Nav.Link href="/baixesmediques">Baixes mèdiques</Nav.Link>
             <Nav.Link href="/sortidescurriculars">Sortides curriculars</Nav.Link>
             <Nav.Link href="#link">Accedir</Nav.Link>
             <Nav.Link href="#link">Enregistrar</Nav.Link>
-            {
+            {/*
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
@@ -32,7 +31,7 @@ function NavBar() {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
-            }
+          */}
           </Nav>
         </Navbar.Collapse>
       </Container>
