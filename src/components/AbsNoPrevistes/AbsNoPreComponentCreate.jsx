@@ -4,14 +4,15 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-function AbsNoPreComponentCreate() {
+function AbsNoPreComponentCreate({ setValidationErrors }) {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
   const [formData, setFormData] = useState({
-    data_absnoprevista: "",
-    hores_ausencia: "",
-    motiu_abs: "",
-    document_justificatiu: "",
-    user: "",
+    data_absnoprevista: '',
+    hora_inici_absnoprevista: '',
+    hora_final_absnoprevista: '',
+    motiu_abs: '',
+    document_justificatiu: '',
+    user: ''
   });
 
   const handleInputChange = (event) => {
@@ -29,17 +30,23 @@ function AbsNoPreComponentCreate() {
       .then((response) => {
         console.log(response.data);
         setFormData({
-          data_absnoprevista: "",
-          hores_ausencia: "",
-          motiu_abs: "",
-          document_justificatiu: "",
-          user: "",
+          data_absnoprevista: '',
+          hora_inici_absnoprevista: '',
+          hora_final_absnoprevista: '',
+          motiu_abs: '',
+          document_justificatiu: '',
+          user: ''
         });
         setAbsNoPreData([...AbsNoPreData, response.data]);
       })
       .catch((error) => {
         console.log(error);
+        if (error.response && error.response.data && error.response.data.errors) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
+      
   };
 
   return (
@@ -54,31 +61,49 @@ function AbsNoPreComponentCreate() {
             value={formData.data_absnoprevista}
             onChange={handleInputChange}
           />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Hores d'absència</InputGroup.Text>
-          <Form.Control
-            type="number"
-            name="hores_ausencia"
-            value={formData.hores_ausencia}
+        </div>
+        <div>
+          <label>Hora inici absència:</label>
+          <input
+            type="select"
+            name="hora_inici_absnoprevista"
+            value={formData.hora_inici_absnoprevista}
             onChange={handleInputChange}
           />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Motiu absència</InputGroup.Text>
-          <Form.Control
-            as="textarea"
-            name="motiu_abs"
-            value={formData.motiu_abs}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Document justificatiu</InputGroup.Text>
-          <Form.Control
+        </div>
+        <div>
+          <label>Hora final absència:</label>
+          <select id="hora_inici_absnoprevista" name="hora_inici_absnoprevista">
+          <optgroup label="Diurn">
+            {['08:00', '09:00', '10:00', '11:00', '11:30', '12:30', '13:30', '14:30'].map((hora) => (
+              <option key={hora} value={hora}>{hora}</option>
+            ))}
+          </optgroup>
+          <optgroup label="Nocturn">
+            {['15:00', '16:00', '17:00', '18:30', '19:30', '20:30'].map((hora) => (
+              <option key={hora} value={hora}>{hora}</option>
+            ))}
+          </optgroup>
+        </select>
+        </div>
+        <div>
+          <label>Motiu de l'absència:</label>
+          <select id="hora_inici_absnoprevista" name="hora_inici_absnoprevista">
+          <optgroup label="Diurn">
+            {['08:00', '09:00', '10:00', '11:00', '11:30', '12:30', '13:30', '14:30'].map((hora) => (
+              <option key={hora} value={hora}>{hora}</option>
+            ))}
+          </optgroup>
+          <optgroup label="Nocturn">
+            {['15:00', '16:00', '17:00', '18:30', '19:30', '20:30'].map((hora) => (
+              <option key={hora} value={hora}>{hora}</option>
+            ))}
+          </optgroup>
+        </select>
+        </div>
+        <div>
+          <label>Document justificatiu:</label>
+          <input
             type="text"
             name="document_justificatiu"
             value={formData.document_justificatiu}
