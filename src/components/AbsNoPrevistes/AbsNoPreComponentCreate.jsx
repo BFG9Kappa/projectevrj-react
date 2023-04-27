@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
 function AbsNoPreComponentCreate({ setValidationErrors }) {
-  const [AbsNoPreData, setAbsNoPreData] = useState([]);
   const history = useHistory();
   const [formData, setFormData] = useState({
     data_absnoprevista: "",
