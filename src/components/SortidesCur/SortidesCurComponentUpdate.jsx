@@ -36,37 +36,37 @@ function SortidesCurComponentUpdate() {
       });
   }, [id]);
 
-    // Recuperamos los valores del registro que hemos cogido
-    useEffect(() => {
-      if (itemValues) {
-        setItem(itemValues);
-      }
-    }, [itemValues]);
-  
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setItem({
-        ...item,
-        [name]: value,
+  // Recuperamos los valores del registro que hemos cogido
+  useEffect(() => {
+    if (itemValues) {
+      setItem(itemValues);
+    }
+  }, [itemValues]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setItem({
+      ...item,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    axios
+      .put("http://localhost:5000/api/sortidescurriculars/update/" + id, item)
+      .then((response) => {
+        console.log(response.data);
+        history.push("/sortidescurriculars");
+      })
+      .catch((error) => {
+        console.log(error);
       });
-    };
+  };
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      axios
-        .put("http://localhost:5000/api/sortidescurriculars/update/" + id, item)
-        .then((response) => {
-          console.log(response.data);
-          history.push("/sortidescurriculars");
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
-
-    return (
-      <>
-            <Form onSubmit={handleSubmit}>
+  return (
+    <>
+      <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-2">
           <InputGroup.Text>Data sortida</InputGroup.Text>
           <Form.Control
@@ -204,9 +204,8 @@ function SortidesCurComponentUpdate() {
 
         <Button type="submit">Enviar</Button>
       </Form>
-      </>
+    </>
   );
-
 }
 
 export default SortidesCurComponentUpdate;
