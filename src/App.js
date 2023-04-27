@@ -8,6 +8,7 @@ import AbsNoPrePageNew from "./pages/AbsNoPrevistes/AbsNoPrePageNew";
 import AbsNoPrePageEdit from "./pages/AbsNoPrevistes/AbsNoPrePageEdit";
 import BaixesMedPage from "./pages/BaixesMed/BaixesMedPage";
 import BaixesMedPageNew from "./pages/BaixesMed/BaixesMedPageNew";
+import BaixesMedPageEdit from "./pages/BaixesMed/BaixesMedPageEdit";
 import SortidesCurPage from "./pages/SortidesCur/SortidesCurPage";
 import SortidesCurPageNew from "./pages/SortidesCur/SortidesCurPageNew";
 import SortidesCurPageEdit from "./pages/SortidesCur/SortidesCurPageEdit";
@@ -27,6 +28,7 @@ function App() {
           <Route exact path="/absnoprevistes/edit/:id" component={AbsNoPrePageEdit} />         
           <Route exact path="/baixesmediques" component={BaixesMedPage} />
           <Route exact path="/baixesmediques/new" component={BaixesMedPageNew}/>
+          <Route exact path="/baixesmediques/edit/:id" component={BaixesMedPageEdit}/>
           <Route exact path="/sortidescurriculars" component={SortidesCurPage}/>
           <Route exact path="/sortidescurriculars/new" component={SortidesCurPageNew}/>
           <Route exact path="/sortidescurriculars/edit/:id" component={SortidesCurPageEdit}/>
