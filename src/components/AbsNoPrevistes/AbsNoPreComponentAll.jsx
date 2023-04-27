@@ -24,8 +24,8 @@ function AbsNoPreComponentAll() {
   // Per a guardar els valors dels paràmetres del registre
   const getItemValues = (id) => {
     const item = AbsNoPreData.find((item) => item._id === id);
-    const { hores_ausencia, motiu_abs, document_justificatiu, user } = item;
-    return { hores_ausencia, motiu_abs, document_justificatiu, user };
+    const { data_absnoprevista,hora_inici_absnoprevista,hora_final_absnoprevista, motiu_abs, document_justificatiu, user } = item;
+    return { data_absnoprevista, hora_inici_absnoprevista, hora_final_absnoprevista, motiu_abs, document_justificatiu, user };
   };
 
   // Passem els valors dels paràmetres guardats amb la variable itemValues per recuperarlos desde el component update
