@@ -16,7 +16,7 @@ function AbsNoPreComponentUpdate() {
     document_justificatiu: "",
     user: "",
   });
- // Variables para rescatar los valores del all
+  // Variables para rescatar los valores del all
   const location = useLocation();
   const { itemValues } = location.state || {};
 
@@ -31,7 +31,7 @@ function AbsNoPreComponentUpdate() {
       });
   }, [id]);
 
-  // Recuperamos los valores del registro que hemos cogido 
+  // Recuperamos los valores del registro que hemos cogido
   useEffect(() => {
     if (itemValues) {
       setItem(itemValues);
