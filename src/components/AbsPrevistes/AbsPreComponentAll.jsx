@@ -55,7 +55,7 @@ function AbsPreComponent() {
               */}
               <td>{moment(item.data_absprevista).format("DD/MM/YYYY")}</td>
               <td>{item.motiu_abs}</td>
-              <td>{item.user}</td>
+              <td>{item.user.fullname}</td>
               <td>
                 <Button
                   variant="primary"
