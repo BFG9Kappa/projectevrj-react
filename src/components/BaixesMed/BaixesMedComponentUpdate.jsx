@@ -101,7 +101,7 @@ function BaixesMedComponentUpdate() {
           />
         </InputGroup>
 
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">Actualitzar</Button>
       </Form>
     </>
   );
