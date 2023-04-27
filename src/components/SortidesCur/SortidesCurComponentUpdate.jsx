@@ -202,7 +202,7 @@ function SortidesCurComponentUpdate() {
           <option value="Aprovada">Aprovada</option>
         </Form.Select>
 
-        <Button type="submit">Enviar</Button>
+        <Button type="submit">Actualitzar</Button>
       </Form>
     </>
   );
