@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -18,7 +19,20 @@ function AbsNoPreComponentAll() {
       });
   }, []);
 
-  const handleUpdate = "Implementar jaja"; // implementar
+  const history = useHistory();
+
+  // Per a guardar els valors dels paràmetres del registre
+  const getItemValues = (id) => {
+    const item = AbsNoPreData.find((item) => item._id === id);
+    const { hores_ausencia, motiu_abs, document_justificatiu, user } = item;
+    return { hores_ausencia, motiu_abs, document_justificatiu, user };
+  };
+
+  // Passem els valors dels paràmetres guardats amb la variable itemValues per recuperarlos desde el component update
+  const handleUpdate = (id) => {
+    const itemValues = getItemValues(id);
+    history.push("/absnoprevistes/edit/"+ id, { itemValues });
+  };
 
   const handleDelete = (id) => {
     axios
@@ -63,12 +77,7 @@ function AbsNoPreComponentAll() {
               <td>{item.document_justificatiu}</td>
               <td>{item.user}</td>
               <td>
-                <Button
-                  variant="primary"
-                  onClick={() => handleUpdate(item._id)}
-                >
-                  Editar
-                </Button>{" "}
+                <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{' '}
                 <Button variant="danger" onClick={() => handleDelete(item._id)}>
                   Esborrar
                 </Button>{" "}
