@@ -3,9 +3,11 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
 function AbsNoPreComponentCreate({ setValidationErrors }) {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
+  const history = useHistory();
   const [formData, setFormData] = useState({
     data_absnoprevista: "",
     hora_inici_absnoprevista: "",
@@ -30,6 +32,7 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
       [name]: value,
     });
   };
+    
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -45,7 +48,9 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
           document_justificatiu: "",
           user: "",
         });
-        setAbsNoPreData([...AbsNoPreData, response.data]);
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
+        history.push("/absnoprevistes");
       })
       .catch((error) => {
         console.log(error);
@@ -59,6 +64,7 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
         }
       });
   };
+  
 
   return (
     <>
