@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -18,7 +19,18 @@ function BaixesMedComponent() {
       });
   }, []);
 
-  const handleUpdate = "Implementar jaja"; // implementar
+  const history = useHistory();
+
+  const getItemValues = (id) => {
+    const item = baixaData.find((item) => item._id === id);
+    const { data_inicial_baixa, data_prevista_alta, comentari, user } = item;
+    return { data_inicial_baixa, data_prevista_alta, comentari, user };
+  };
+
+  const handleUpdate = (id) => {
+    const itemValues = getItemValues(id);
+    history.push("/baixesmediques/edit/" + id, { itemValues });
+  };
 
   const handleDelete = (id) => {
     axios
