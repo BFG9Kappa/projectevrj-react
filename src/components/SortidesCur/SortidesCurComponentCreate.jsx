@@ -27,15 +27,6 @@ function SortidesCurComponentCreate() {
     });
   };
 
-  // Per manejar els selects
-  const handleSelectChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -138,7 +129,7 @@ function SortidesCurComponentCreate() {
           name="hora_inici"
           aria-label="hora_inici"
           value={formData.hora_inici}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora de sortida</option>
           <optgroup label="Diurn">
@@ -164,7 +155,7 @@ function SortidesCurComponentCreate() {
           name="hora_arribada"
           aria-label="hora_arribada"
           value={formData.hora_arribada}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora d'arribada</option>
           <optgroup label="Diurn">
