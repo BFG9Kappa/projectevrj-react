@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -18,7 +19,18 @@ function SortidesCurComponent() {
       });
   }, []);
 
-  const handleUpdate = "Implementar jaja"; // implementar
+  const history = useHistory();
+
+  const getItemValues = (id) => {
+    const item = SortidaData.find((item) => item._id === id);
+    const { data_sortida, lloc, ruta, objectius, grups, professors, hora_inici, hora_arribada, estat } = item;
+    return { data_sortida, lloc, ruta, objectius, grups, professors, hora_inici, hora_arribada, estat };
+  };
+
+  const handleUpdate = (id) => {
+    const itemValues = getItemValues(id);
+    history.push("/sortidescurriculars/edit/"+ id, { itemValues });
+  };
 
   const handleDelete = (id) => {
     axios
@@ -69,15 +81,8 @@ function SortidesCurComponent() {
               <td>{item.hora_arribada}</td>
               <td>{item.estat}</td>
               <td>
-                <Button
-                  variant="primary"
-                  onClick={() => handleUpdate(item._id)}
-                >
-                  Editar
-                </Button>{" "}
-                <Button variant="danger" onClick={() => handleDelete(item._id)}>
-                  Esborrar
-                </Button>{" "}
+              <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
+              <Button variant="danger" onClick={() => handleDelete(item._id)}>Esborrar</Button>{" "}
               </td>
             </tr>
           ))}

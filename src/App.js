@@ -10,7 +10,7 @@ import BaixesMedPage from "./pages/BaixesMed/BaixesMedPage";
 import BaixesMedPageNew from "./pages/BaixesMed/BaixesMedPageNew";
 import SortidesCurPage from "./pages/SortidesCur/SortidesCurPage";
 import SortidesCurPageNew from "./pages/SortidesCur/SortidesCurPageNew";
-
+import SortidesCurPageEdit from "./pages/SortidesCur/SortidesCurPageEdit";
 
 document.title = "Projecte M12";
 
@@ -29,6 +29,7 @@ function App() {
           <Route exact path="/baixesmediques/new" component={BaixesMedPageNew}/>
           <Route exact path="/sortidescurriculars" component={SortidesCurPage}/>
           <Route exact path="/sortidescurriculars/new" component={SortidesCurPageNew}/>
+          <Route exact path="/sortidescurriculars/edit/:id" component={SortidesCurPageEdit}/>
         </div>
       </div>
     </BrowserRouter>

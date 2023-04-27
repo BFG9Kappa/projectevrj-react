@@ -1,8 +1,7 @@
-import NavBar from '../../components/NavBar';
-import AbsNoPreComponentUpdate from '../../components/AbsNoPrevistes/AbsNoPreComponentUpdate';
+import NavBar from "../../components/NavBar";
+import AbsNoPreComponentUpdate from "../../components/AbsNoPrevistes/AbsNoPreComponentUpdate";
 
 function AbsNoPrePageEdit() {
-
   return (
     <>
       <NavBar />

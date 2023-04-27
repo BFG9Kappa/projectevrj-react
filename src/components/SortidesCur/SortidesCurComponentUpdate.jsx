@@ -1,12 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-function SortidesCurComponentCreate() {
-  const [sortidaData, setSortidaData] = useState([]);
-  const [formData, setFormData] = useState({
+function SortidesCurComponentUpdate() {
+  const history = useHistory();
+  const { id } = useParams();
+
+  const [item, setItem] = useState({
     data_sortida: "",
     email: "",
     lloc: "",
@@ -19,48 +22,57 @@ function SortidesCurComponentCreate() {
     estat: "",
   });
 
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const location = useLocation();
+  const { itemValues } = location.state || {};
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  useEffect(() => {
     axios
-      .post("http://localhost:5000/api/sortidescurriculars/create/", formData)
+      .get("http://localhost:5000/api/sortidescurriculars/update/" + id)
       .then((response) => {
-        console.log(response.data);
-        setFormData({
-          data_sortida: "",
-          email: "",
-          lloc: "",
-          ruta: "",
-          objectius: "",
-          grups: "",
-          professors: "",
-          hora_inici: "",
-          hora_arribada: "",
-          estat: "",
-        });
-        setSortidaData([...sortidaData, response.data]);
+        setItem(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
-  };
+  }, [id]);
 
-  return (
-    <>
-      <Form onSubmit={handleSubmit}>
+    // Recuperamos los valores del registro que hemos cogido
+    useEffect(() => {
+      if (itemValues) {
+        setItem(itemValues);
+      }
+    }, [itemValues]);
+  
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setItem({
+        ...item,
+        [name]: value,
+      });
+    };
+
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      axios
+        .put("http://localhost:5000/api/sortidescurriculars/update/" + id, item)
+        .then((response) => {
+          console.log(response.data);
+          history.push("/sortidescurriculars");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+
+    return (
+      <>
+            <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-2">
           <InputGroup.Text>Data sortida</InputGroup.Text>
           <Form.Control
             type="date"
             name="data_sortida"
-            value={formData.data_sortida}
+            value={item.data_sortida}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -70,7 +82,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="email"
             name="email"
-            value={formData.email}
+            value={item.email}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -80,7 +92,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="lloc"
-            value={formData.lloc}
+            value={item.lloc}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -90,7 +102,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="ruta"
-            value={formData.ruta}
+            value={item.ruta}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -100,7 +112,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="objectius"
-            value={formData.objectius}
+            value={item.objectius}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -110,7 +122,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="grups"
-            value={formData.grups}
+            value={item.grups}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -120,7 +132,7 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="professors"
-            value={formData.professors}
+            value={item.professors}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -128,7 +140,7 @@ function SortidesCurComponentCreate() {
         <Form.Select
           name="hora_inici"
           aria-label="hora_inici"
-          value={formData.hora_inici}
+          value={item.hora_inici}
           onChange={handleInputChange}
         >
           <option>Hora de sortida</option>
@@ -154,7 +166,7 @@ function SortidesCurComponentCreate() {
         <Form.Select
           name="hora_arribada"
           aria-label="hora_arribada"
-          value={formData.hora_arribada}
+          value={item.hora_arribada}
           onChange={handleInputChange}
         >
           <option>Hora d'arribada</option>
@@ -182,15 +194,16 @@ function SortidesCurComponentCreate() {
           <Form.Control
             type="text"
             name="estat"
-            value={formData.estat}
+            value={item.estat}
             onChange={handleInputChange}
           />
         </InputGroup>
 
         <Button type="submit">Enviar</Button>
       </Form>
-    </>
+      </>
   );
+
 }
 
-export default SortidesCurComponentCreate;
+export default SortidesCurComponentUpdate;
