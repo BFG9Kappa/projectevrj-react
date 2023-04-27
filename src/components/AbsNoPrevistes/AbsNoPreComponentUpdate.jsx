@@ -4,6 +4,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import moment from "moment";
 
 function AbsNoPreComponentUpdate() {
   const history = useHistory();
@@ -76,7 +77,7 @@ function AbsNoPreComponentUpdate() {
           <Form.Control
             type="date"
             name="data_absnoprevista"
-            value={item.data_absnoprevista}
+            value={moment(item.data_absnoprevista).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>
