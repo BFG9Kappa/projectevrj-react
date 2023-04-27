@@ -177,15 +177,18 @@ function SortidesCurComponentCreate() {
           </optgroup>
         </Form.Select>
 
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Estat</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="estat"
-            value={formData.estat}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
+        <Form.Select
+          name="estat"
+          aria-label="estat"
+          value={formData.estat}
+          onChange={handleInputChange}
+        >
+          <option>Estat</option>
+          <option value="Proposada">Proposada</option>
+          <option value="Refusada">Refusada</option>
+          <option value="Anul·lada">Anul·lada</option>
+          <option value="Aprovada">Aprovada</option>
+        </Form.Select>
 
         <Button type="submit">Enviar</Button>
       </Form>
