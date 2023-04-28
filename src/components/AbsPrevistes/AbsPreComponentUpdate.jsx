@@ -6,23 +6,22 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 
-function BaixesMedComponentUpdate() {
+function AbsPreComponentUpdate() {
   const history = useHistory();
-  const { id } = useParams();
+  const { id } = useParams(); // Recupera el valor de id pasado como parte de la ruta
 
   const [item, setItem] = useState({
-    data_inicial_baixa: "",
-    data_prevista_alta: "",
-    comentari: "",
+    data_absprevista: "",
+    motiu_abs: "",
     user: "",
   });
-
+  // Variables para rescatar los valores del all
   const location = useLocation();
   const { itemValues } = location.state || {};
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/baixesmediques/update/" + id)
+      .get("http://localhost:5000/api/absprevistes/update/" + id)
       .then((response) => {
         setItem(response.data);
       })
@@ -31,6 +30,7 @@ function BaixesMedComponentUpdate() {
       });
   }, [id]);
 
+  // Recuperamos los valores del registro que hemos cogido
   useEffect(() => {
     if (itemValues) {
       setItem(itemValues);
@@ -48,10 +48,10 @@ function BaixesMedComponentUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/baixesmediques/update/" + id, item)
+      .put("http://localhost:5000/api/absprevistes/update/" + id, item)
       .then((response) => {
         console.log(response.data);
-        history.push("/baixesmediques");
+        history.push("/absprevistes");
       })
       .catch((error) => {
         console.log(error);
@@ -61,33 +61,22 @@ function BaixesMedComponentUpdate() {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data baixa</InputGroup.Text>
+          <InputGroup.Text>Data absència</InputGroup.Text>
           <Form.Control
             type="date"
-            name="data_inicial_baixa"
-            value={moment(item.data_inicial_baixa).format("YYYY-MM-DD")}
+            name="data_absprevista"
+            value={moment(item.data_absprevista).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>
 
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data alta</InputGroup.Text>
-          <Form.Control
-            type="date"
-            name="data_prevista_alta"
-            value={moment(item.data_prevista_alta).format("YYYY-MM-DD")}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
-
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Comentari</InputGroup.Text>
+          <InputGroup.Text>Motiu absència</InputGroup.Text>
           <Form.Control
             as="textarea"
-            name="comentari"
-            value={item.comentari}
+            name="motiu_abs"
+            value={item.motiu_abs}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -108,4 +97,4 @@ function BaixesMedComponentUpdate() {
   );
 }
 
-export default BaixesMedComponentUpdate;
+export default AbsPreComponentUpdate;
