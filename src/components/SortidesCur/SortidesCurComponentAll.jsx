@@ -76,6 +76,7 @@ function SortidesCurComponent() {
               <td>{item.ruta}</td>
               <td>{item.objectius}</td>
               <td>{item.grups}</td>
+              {/* <td>{item.professors.fullname}</td> */}
               <td>{item.professors}</td>
               <td>{item.hora_inici}</td>
               <td>{item.hora_arribada}</td>

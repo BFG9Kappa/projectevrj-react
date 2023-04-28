@@ -69,7 +69,8 @@ function BaixesMedComponent() {
               <td>{moment(item.data_inicial_baixa).format("DD/MM/YYYY")}</td>
               <td>{moment(item.data_prevista_alta).format("DD/MM/YYYY")}</td>
               <td>{item.comentari}</td>
-              <td>{item.user.fullname}</td>
+              {/* <td>{item.user.fullname}</td> */}
+              <td>{item.user}</td>
               <td>
                 <Button
                   variant="primary"

@@ -3,10 +3,10 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
-function AbsPreComponentCreate() {
-  
-  const [AbsPrevistaData, setAbsPrevistaData] = useState([]);
+function AbsPreComponentCreate({ setValidationErrors }) {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     data_absprevista: "",
     motiu_abs: "",
@@ -32,13 +32,15 @@ function AbsPreComponentCreate() {
           motiu_abs: "",
           user: "",
         });
-        setAbsPrevistaData([...AbsPrevistaData, response.data]);
+
+        history.push("/absprevistes");
       })
       .catch((error) => {
         console.log(error);
+
       });
   };
-
+  
   return (
     <>
       <Form onSubmit={handleSubmit}>
