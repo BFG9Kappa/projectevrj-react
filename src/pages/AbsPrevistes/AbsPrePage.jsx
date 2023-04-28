@@ -1,4 +1,4 @@
-import AbsPreAll from "../../components/AbsPrevistes/AbsPreComponentAll";
+import AbsPreComponentAll from "../../components/AbsPrevistes/AbsPreComponentAll";
 import NavBar from "../../components/NavBar";
 import { useHistory } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
@@ -19,7 +19,7 @@ function AbsPrePage() {
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <br />
         <br />
-        <AbsPreAll />
+        <AbsPreComponentAll />
       </div>
     </>
   );

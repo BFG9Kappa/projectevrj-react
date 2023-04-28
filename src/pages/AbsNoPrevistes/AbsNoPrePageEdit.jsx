@@ -1,16 +1,16 @@
 import NavBar from "../../components/NavBar";
-import AbsNoPreComponentUpdate from "../../components/AbsNoPrevistes/AbsNoPreComponentUpdate";
+import AbsNoPreComponentUpdate from "../../components/AbsPrevistes/AbsPreComponentUpdate";
 
-function AbsNoPrePageEdit() {
+function AbsPrePageEdit() {
   return (
     <>
       <NavBar />
       <div className="container">
-        <h3>Editar absència no prevista</h3>
+        <h3>Editar absència prevista</h3>
         <AbsNoPreComponentUpdate />
       </div>
     </>
   );
 }
 
-export default AbsNoPrePageEdit;
+export default AbsPrePageEdit;
