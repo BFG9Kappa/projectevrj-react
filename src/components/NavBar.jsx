@@ -17,8 +17,8 @@ function NavBar() {
             <Nav.Link href="/absnoprevistes">Absències no previstes</Nav.Link>
             <Nav.Link href="/baixesmediques">Baixes mèdiques</Nav.Link>
             <Nav.Link href="/sortidescurriculars">Sortides curriculars</Nav.Link>
-            <Nav.Link href="#link">Accedir</Nav.Link>
-            <Nav.Link href="#link">Enregistrar</Nav.Link>
+            <Nav.Link href="/auth/login">Accedir</Nav.Link>
+            <Nav.Link href="/auth/register">Enregistrar</Nav.Link>
             {/*
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

@@ -19,7 +19,7 @@ function AbsNoPrePage() {
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
         <br />
         <br />
-        <AbsNoPreComponentAll />
+        <AbsNoPreComponentAll/>
       </div>
     </>
   );

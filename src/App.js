@@ -12,6 +12,8 @@ import BaixesMedPageEdit from "./pages/BaixesMed/BaixesMedPageEdit";
 import SortidesCurPage from "./pages/SortidesCur/SortidesCurPage";
 import SortidesCurPageNew from "./pages/SortidesCur/SortidesCurPageNew";
 import SortidesCurPageEdit from "./pages/SortidesCur/SortidesCurPageEdit";
+import LoginPage from "./pages/Login/LoginPage";
+
 
 document.title = "Projecte M12";
 
@@ -32,6 +34,7 @@ function App() {
           <Route exact path="/sortidescurriculars" component={SortidesCurPage}/>
           <Route exact path="/sortidescurriculars/new" component={SortidesCurPageNew}/>
           <Route exact path="/sortidescurriculars/edit/:id" component={SortidesCurPageEdit}/>
+          <Route exact path="/auth/login" component={LoginPage}/>
         </div>
       </div>
     </BrowserRouter>
