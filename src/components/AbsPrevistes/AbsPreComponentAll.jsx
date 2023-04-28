@@ -31,7 +31,7 @@ function AbsPreComponentAll() {
   // Passem els valors dels paràmetres guardats amb la variable itemValues per recuperarlos desde el component update
   const handleUpdate = (id) => {
     const itemValues = getItemValues(id);
-    history.push("/absnoprevistes/edit/"+ id, { itemValues });
+    history.push("/absprevistes/edit/"+ id, { itemValues });
   };
 
   const handleDelete = (id) => {

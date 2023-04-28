@@ -6,10 +6,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 
-function AbsNoPreComponentUpdate() {
+function AbsNoPreComponentUpdate({ setValidationErrors }) {
   const history = useHistory();
   const { id } = useParams(); // Recupera el valor de id pasado como parte de la ruta
-
   const [item, setItem] = useState({
     data_absnoprevista: "",
     hora_inici_absnoprevista: "",
@@ -59,13 +58,31 @@ function AbsNoPreComponentUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/absnoprevistes/update/" + id, item)
+      .put("http://localhost:5000/api/absnoprevistes/update/"+ id, item)
       .then((response) => {
         console.log(response.data);
+        setItem({
+          data_absnoprevista: "",
+          hora_inici_absnoprevista: "",
+          hora_final_absnoprevista: "",
+          motiu_abs: "",
+          document_justificatiu: "",
+          user: "",
+        });
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
         history.push("/absnoprevistes");
       })
       .catch((error) => {
         console.log(error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
 
@@ -73,12 +90,12 @@ function AbsNoPreComponentUpdate() {
     <>
       <Form onSubmit={handleSubmit}>
         <InputGroup className="mb-2">
-          <InputGroup.Text>Data absència</InputGroup.Text>
           <Form.Control
             type="date"
             name="data_absnoprevista"
             value={moment(item.data_absnoprevista).format("YYYY-MM-DD")}
             onChange={handleInputChange}
+            style={{ display: 'none' }}
           />
         </InputGroup>
 
