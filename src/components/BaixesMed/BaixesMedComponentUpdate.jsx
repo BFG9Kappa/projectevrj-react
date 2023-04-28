@@ -4,6 +4,7 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import moment from "moment";
 
 function BaixesMedComponentUpdate() {
   const history = useHistory();
@@ -66,7 +67,7 @@ function BaixesMedComponentUpdate() {
           <Form.Control
             type="date"
             name="data_inicial_baixa"
-            value={item.data_inicial_baixa}
+            value={moment(item.data_inicial_baixa).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -76,7 +77,7 @@ function BaixesMedComponentUpdate() {
           <Form.Control
             type="date"
             name="data_prevista_alta"
-            value={item.data_prevista_alta}
+            value={moment(item.data_prevista_alta).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>
