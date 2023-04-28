@@ -5,7 +5,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 
-function AbsPreComponent() {
+function AbsPreComponentAll() {
   const [AbsPreData, setAbsPreData] = useState([]);
 
   useEffect(() => {
@@ -69,7 +69,8 @@ function AbsPreComponent() {
               */}
               <td>{moment(item.data_absprevista).format("DD/MM/YYYY")}</td>
               <td>{item.motiu_abs}</td>
-              <td>{item.user.fullname}</td>
+              {/* <td>{item.user.fullname}</td> */}
+              <td>{item.user}</td>
               <td>
                 <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
                 <Button variant="danger" onClick={() => handleDelete(item._id)}>
@@ -84,4 +85,4 @@ function AbsPreComponent() {
   );
 }
 
-export default AbsPreComponent;
+export default AbsPreComponentAll;

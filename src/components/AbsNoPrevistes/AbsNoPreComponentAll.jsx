@@ -75,7 +75,8 @@ function AbsNoPreComponentAll() {
               <td>{item.hora_final_absnoprevista}</td>
               <td>{item.motiu_abs}</td>
               <td>{item.document_justificatiu}</td>
-              <td>{item.user.fullname}</td>
+             {/* <td>{item.user.fullname}</td> */}
+              <td>{item.user}</td>
               <td>
                 <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
                 <Button variant="danger" onClick={() => handleDelete(item._id)}>
