@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
@@ -18,7 +19,20 @@ function AbsPreComponent() {
       });
   }, []);
 
-  const handleUpdate = "Implementar jaja"; // implementar
+  const history = useHistory();
+
+  // Per a guardar els valors dels paràmetres del registre
+  const getItemValues = (id) => {
+    const item = AbsPreData.find((item) => item._id === id);
+    const { data_absprevista, motiu_abs, user } = item;
+    return { data_absprevista, motiu_abs, user };
+  };
+
+  // Passem els valors dels paràmetres guardats amb la variable itemValues per recuperarlos desde el component update
+  const handleUpdate = (id) => {
+    const itemValues = getItemValues(id);
+    history.push("/absnoprevistes/edit/"+ id, { itemValues });
+  };
 
   const handleDelete = (id) => {
     axios
@@ -55,14 +69,9 @@ function AbsPreComponent() {
               */}
               <td>{moment(item.data_absprevista).format("DD/MM/YYYY")}</td>
               <td>{item.motiu_abs}</td>
-              <td>{item.user}</td>
+              <td>{item.user.fullname}</td>
               <td>
-                <Button
-                  variant="primary"
-                  onClick={() => handleUpdate(item._id)}
-                >
-                  Editar
-                </Button>{" "}
+                <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
                 <Button variant="danger" onClick={() => handleDelete(item._id)}>
                   Esborrar
                 </Button>{" "}
