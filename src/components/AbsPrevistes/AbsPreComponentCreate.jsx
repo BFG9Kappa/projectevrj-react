@@ -32,14 +32,23 @@ function AbsPreComponentCreate({ setValidationErrors }) {
           motiu_abs: "",
           user: "",
         });
-
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
         history.push("/absprevistes");
       })
       .catch((error) => {
         console.log(error);
-
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
+  
   
   return (
     <>

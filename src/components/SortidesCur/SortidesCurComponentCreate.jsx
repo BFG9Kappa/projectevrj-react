@@ -148,7 +148,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
           name="hora_inici"
           aria-label="hora_inici"
           value={formData.hora_inici}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Hora de sortida</option>
           <optgroup label="Diurn">
@@ -174,7 +174,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
           name="hora_arribada"
           aria-label="hora_arribada"
           value={formData.hora_arribada}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Hora d'arribada</option>
           <optgroup label="Diurn">
@@ -200,7 +200,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
           name="estat"
           aria-label="estat"
           value={formData.estat}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Estat</option>
           <option value="Proposada">Proposada</option>
