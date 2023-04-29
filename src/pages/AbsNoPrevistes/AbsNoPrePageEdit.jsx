@@ -1,16 +1,27 @@
 import NavBar from "../../components/NavBar";
-import AbsNoPreComponentUpdate from "../../components/AbsPrevistes/AbsPreComponentUpdate";
+import React, { useState } from "react";
+import AbsNoPreComponentUpdate from "../../components/AbsNoPrevistes/AbsNoPreComponentUpdate";
 
-function AbsPrePageEdit() {
+function AbsNoPrePageEdit() {
+  const [validationErrors, setValidationErrors] = useState([]);
   return (
     <>
       <NavBar />
       <div className="container">
         <h3>Editar absència prevista</h3>
-        <AbsNoPreComponentUpdate />
+        {validationErrors.length > 0 && (
+          <div className="alert alert-danger">
+            <ul>
+              {validationErrors.map((error) => (
+                <li key={error.msg}>{error.msg}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <AbsNoPreComponentUpdate setValidationErrors={setValidationErrors} />
       </div>
     </>
   );
 }
 
-export default AbsPrePageEdit;
+export default AbsNoPrePageEdit;

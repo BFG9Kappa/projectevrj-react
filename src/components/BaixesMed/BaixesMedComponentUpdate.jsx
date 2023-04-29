@@ -4,11 +4,11 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import moment from "moment";
 
-function BaixesMedComponentUpdate() {
+function BaixesMedComponentUpdate({ setValidationErrors }) {
   const history = useHistory();
   const { id } = useParams();
-
   const [item, setItem] = useState({
     data_inicial_baixa: "",
     data_prevista_alta: "",
@@ -47,16 +47,31 @@ function BaixesMedComponentUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/baixesmediques/update/" + id, item)
+      .put("http://localhost:5000/api/baixesmediques/update/"+ id, item)
       .then((response) => {
         console.log(response.data);
+        setItem({
+          data_inicial_baixa: "",
+          data_prevista_alta: "",
+          comentari: "",
+          user: "",
+        });
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
         history.push("/baixesmediques");
       })
       .catch((error) => {
         console.log(error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
-
   return (
     <>
       <Form onSubmit={handleSubmit}>
@@ -66,7 +81,7 @@ function BaixesMedComponentUpdate() {
           <Form.Control
             type="date"
             name="data_inicial_baixa"
-            value={item.data_inicial_baixa}
+            value={moment(item.data_inicial_baixa).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>
@@ -76,7 +91,7 @@ function BaixesMedComponentUpdate() {
           <Form.Control
             type="date"
             name="data_prevista_alta"
-            value={item.data_prevista_alta}
+            value={moment(item.data_prevista_alta).format("YYYY-MM-DD")}
             onChange={handleInputChange}
           />
         </InputGroup>

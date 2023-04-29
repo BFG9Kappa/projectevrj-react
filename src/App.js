@@ -13,6 +13,8 @@ import BaixesMedPageEdit from "./pages/BaixesMed/BaixesMedPageEdit";
 import SortidesCurPage from "./pages/SortidesCur/SortidesCurPage";
 import SortidesCurPageNew from "./pages/SortidesCur/SortidesCurPageNew";
 import SortidesCurPageEdit from "./pages/SortidesCur/SortidesCurPageEdit";
+import LoginPage from "./pages/Login/LoginPage";
+import PrivateRoute from './components/PrivateRoute'
 
 
 document.title = "Projecte M12";
@@ -22,19 +24,20 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <div className="container">
-          <Route exact path="/" component={Home} />
-          <Route exact path="/absprevistes" component={AbsPrePage} />
-          <Route exact path="/absprevistes/new" component={AbsPrePageNew} />
-          <Route exact path="/absprevistes/edit/:id" component={AbsPrePageEdit} />
-          <Route exact path="/absnoprevistes" component={AbsNoPrePage} />
-          <Route exact path="/absnoprevistes/new" component={AbsNoPrePageNew} />
-          <Route exact path="/absnoprevistes/edit/:id" component={AbsNoPrePageEdit} />         
-          <Route exact path="/baixesmediques" component={BaixesMedPage} />
-          <Route exact path="/baixesmediques/new" component={BaixesMedPageNew}/>
-          <Route exact path="/baixesmediques/edit/:id" component={BaixesMedPageEdit}/>
-          <Route exact path="/sortidescurriculars" component={SortidesCurPage}/>
-          <Route exact path="/sortidescurriculars/new" component={SortidesCurPageNew}/>
-          <Route exact path="/sortidescurriculars/edit/:id" component={SortidesCurPageEdit}/>
+          <PrivateRoute exact path="/" component={Home} />
+          <PrivateRoute exact path="/absprevistes" component={AbsPrePage} />
+          <PrivateRoute exact path="/absprevistes/new" component={AbsPrePageNew} />
+          <PrivateRoute exact path="/absprevistes/edit/:id" component={AbsPrePageEdit} />
+          <PrivateRoute exact path="/absnoprevistes" component={AbsNoPrePage} />
+          <PrivateRoute exact path="/absnoprevistes/new" component={AbsNoPrePageNew} />
+          <PrivateRoute exact path="/absnoprevistes/edit/:id" component={AbsNoPrePageEdit} />         
+          <PrivateRoute exact path="/baixesmediques" component={BaixesMedPage} />
+          <PrivateRoute exact path="/baixesmediques/new" component={BaixesMedPageNew}/>
+          <PrivateRoute exact path="/baixesmediques/edit/:id" component={BaixesMedPageEdit}/>
+          <PrivateRoute exact path="/sortidescurriculars" component={SortidesCurPage}/>
+          <PrivateRoute exact path="/sortidescurriculars/new" component={SortidesCurPageNew}/>
+          <PrivateRoute exact path="/sortidescurriculars/edit/:id" component={SortidesCurPageEdit}/>
+          <Route exact path="/auth/login" component={LoginPage}/>
         </div>
       </div>
     </BrowserRouter>

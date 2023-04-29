@@ -5,10 +5,9 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 
-function SortidesCurComponentUpdate() {
+function SortidesCurComponentUpdate({ setValidationErrors }) {
   const history = useHistory();
   const { id } = useParams();
-
   const [item, setItem] = useState({
     data_sortida: "",
     email: "",
@@ -54,15 +53,38 @@ function SortidesCurComponentUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/sortidescurriculars/update/" + id, item)
+      .put("http://localhost:5000/api/sortidescurriculars/update/"+ id, item)
       .then((response) => {
         console.log(response.data);
+        setItem({
+          data_sortida: "",
+          email: "",
+          lloc: "",
+          ruta: "",
+          objectius: "",
+          grups: "",
+          professors: "",
+          hora_inici: "",
+          hora_arribada: "",
+          estat: "",
+        });
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
         history.push("/sortidescurriculars");
       })
       .catch((error) => {
         console.log(error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
+
 
   return (
     <>
