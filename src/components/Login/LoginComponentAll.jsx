@@ -1,17 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 
 const LoginComponentAll = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errorMessage, setErrorMessage] = useState("");
   
-    const history = useHistory();
-  
     const handleSubmit = async (event) => {
       event.preventDefault();
       try {
-        const response = await fetch("/auth/login", {
+        const response = await fetch("http://localhost:5000/auth/login", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -21,11 +18,16 @@ const LoginComponentAll = () => {
   
         if (!response.ok) {
           const error = await response.json();
-          setErrorMessage(error.message);
+          setErrorMessage(error.error);
           return;
         }
-  
-        history.push("/");
+        else
+        {
+          const bodyJSON = await response.json();
+          const token = bodyJSON.tokenSession;
+          sessionStorage.setItem('token', token);
+          window.location.href = "/";
+        }
       } catch (error) {
         console.log(error);
       }
@@ -37,7 +39,7 @@ const LoginComponentAll = () => {
       <div className="row">
         <div className="col-md-4 offset-md-4">
           <div className="login-form bg-light mt-4 p-4">
-            <form onSubmit={handleSubmit} className="row g-3">
+            <form onSubmit={handleSubmit} className="row g-3" action="/">
               <h4>Benvingut/da</h4>
               <div className="col-12">
                 <label>Correu electrònic</label>
