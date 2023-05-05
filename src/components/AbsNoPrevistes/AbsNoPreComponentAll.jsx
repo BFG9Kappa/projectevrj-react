@@ -7,15 +7,16 @@ import moment from "moment";
 
 function AbsNoPreComponentAll() {
   const [AbsNoPreData, setAbsNoPreData] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/absnoprevistes/all")
+      .get("http://localhost:5000/api/absnoprevistes/all", { headers: {"Authorization" : `Bearer ${sessionStorage.getItem('token')}`} })
       .then((response) => {
         setAbsNoPreData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(JSON.parse(error.request.response).error);
       });
   }, []);
 
@@ -49,7 +50,7 @@ function AbsNoPreComponentAll() {
 
   return (
     <>
-      <Table striped bordered hover>
+      {!errorMessage &&<Table striped bordered hover>
         <thead>
           <tr>
             {/*
@@ -86,7 +87,12 @@ function AbsNoPreComponentAll() {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </Table>}
+      {errorMessage && (
+        <div className="alert alert-danger mt-4" role="alert">
+          <p>{errorMessage}</p>
+        </div>
+      )}
     </>
   );
 }
