@@ -4,9 +4,11 @@ import Home from "./pages/Home";
 import AbsPrePage from "./pages/AbsPrevistes/AbsPrePage";
 import AbsPrePageNew from "./pages/AbsPrevistes/AbsPrePageNew";
 import AbsPrePageEdit from "./pages/AbsPrevistes/AbsPrePageEdit";
+import AbsPrePagePDF from "./pages/AbsPrevistes/AbsPrePagePDF";
 import AbsNoPrePage from "./pages/AbsNoPrevistes/AbsNoPrePage";
 import AbsNoPrePageNew from "./pages/AbsNoPrevistes/AbsNoPrePageNew";
 import AbsNoPrePageEdit from "./pages/AbsNoPrevistes/AbsNoPrePageEdit";
+import AbsNoPrePagePDF from "./pages/AbsNoPrevistes/AbsNoPrePagePDF";
 import BaixesMedPage from "./pages/BaixesMed/BaixesMedPage";
 import BaixesMedPageNew from "./pages/BaixesMed/BaixesMedPageNew";
 import BaixesMedPageEdit from "./pages/BaixesMed/BaixesMedPageEdit";
@@ -26,9 +28,11 @@ function App() {
           <Route exact path="/absprevistes" component={AbsPrePage} />
           <Route exact path="/absprevistes/new" component={AbsPrePageNew} />
           <Route exact path="/absprevistes/edit/:id" component={AbsPrePageEdit} />
+          <Route exact path="/absprevistes/decresp" component={AbsPrePagePDF} />
           <Route exact path="/absnoprevistes" component={AbsNoPrePage} />
           <Route exact path="/absnoprevistes/new" component={AbsNoPrePageNew} />
-          <Route exact path="/absnoprevistes/edit/:id" component={AbsNoPrePageEdit} />         
+          <Route exact path="/absnoprevistes/edit/:id" component={AbsNoPrePageEdit} />
+          <Route exact path="/absnoprevistes/decresp" component={AbsNoPrePagePDF} />
           <Route exact path="/baixesmediques" component={BaixesMedPage} />
           <Route exact path="/baixesmediques/new" component={BaixesMedPageNew}/>
           <Route exact path="/baixesmediques/edit/:id" component={BaixesMedPageEdit}/>
