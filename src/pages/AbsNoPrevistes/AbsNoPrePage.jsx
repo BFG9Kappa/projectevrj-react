@@ -11,12 +11,18 @@ function AbsNoPrePage() {
     history.push("/absnoprevistes/new");
   };
 
+  const handleDecrespClick = (event) => {
+    event.preventDefault();
+    history.push("/absnoprevistes/decresp");
+  };
+
   return (
     <>
       <NavBar />
       <div className="container">
         <h3>Llista d'absències no previstes</h3>
         <Button variant="primary" onClick={handleNovaClick}>Nova</Button>{' '}
+        <Button variant="primary" onClick={handleDecrespClick}>Declaració responsable</Button>{' '}
         <br />
         <br />
         <AbsNoPreComponentAll/>
