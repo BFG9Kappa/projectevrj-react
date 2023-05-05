@@ -7,15 +7,16 @@ import moment from "moment";
 
 function BaixesMedComponent() {
   const [baixaData, setBaixaData] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/baixesmediques/all")
+      .get("http://localhost:5000/api/baixesmediques/all", { headers: {"Authorization" : `Bearer ${sessionStorage.getItem('token')}`} })
       .then((response) => {
         setBaixaData(response.data);
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(JSON.parse(error.request.response).error);
       });
   }, []);
 
@@ -47,7 +48,7 @@ function BaixesMedComponent() {
 
   return (
     <>
-      <Table striped bordered hover>
+      {!errorMessage &&<Table striped bordered hover>
         <thead>
           <tr>
             {/*
@@ -85,7 +86,12 @@ function BaixesMedComponent() {
             </tr>
           ))}
         </tbody>
-      </Table>
+      </Table>}
+      {errorMessage && (
+        <div className="alert alert-danger mt-4" role="alert">
+          <p>{errorMessage}</p>
+        </div>
+      )}
     </>
   );
 }
