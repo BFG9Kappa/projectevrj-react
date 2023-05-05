@@ -72,7 +72,7 @@ function AbsPreComponentAll() {
               {/* <td>{item.user.fullname}</td> */}
               <td>{item.user}</td>
               <td>
-                <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
+                <Button variant="secondary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
                 <Button variant="danger" onClick={() => handleDelete(item._id)}>
                   Esborrar
                 </Button>{" "}

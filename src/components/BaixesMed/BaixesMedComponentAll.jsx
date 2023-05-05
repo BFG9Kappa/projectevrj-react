@@ -73,7 +73,7 @@ function BaixesMedComponent() {
               <td>{item.user}</td>
               <td>
                 <Button
-                  variant="primary"
+                  variant="secondary"
                   onClick={() => handleUpdate(item._id)}
                 >
                   Editar
