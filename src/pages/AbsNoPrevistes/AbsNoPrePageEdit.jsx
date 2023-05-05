@@ -8,7 +8,7 @@ function AbsNoPrePageEdit() {
     <>
       <NavBar />
       <div className="container">
-        <h3>Editar absència prevista</h3>
+        <h3>Editar absència no prevista</h3>
         {validationErrors.length > 0 && (
           <div className="alert alert-danger">
             <ul>

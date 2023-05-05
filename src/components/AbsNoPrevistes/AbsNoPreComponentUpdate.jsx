@@ -91,7 +91,7 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
           />
         </InputGroup>
 
-        <Form.Select
+        <Form.Select className="mb-2"
           name="hora_inici_absnoprevista"
           aria-label="hora_inici_absnoprevista"
           value={item.hora_inici_absnoprevista}
@@ -117,7 +117,7 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
           </optgroup>
         </Form.Select>
 
-        <Form.Select
+        <Form.Select className="mb-2"
           name="hora_final_absnoprevista"
           aria-label="hora_final_absnoprevista"
           value={item.hora_final_absnoprevista}
@@ -153,15 +153,10 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
           />
         </InputGroup>
 
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Document justificatiu</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="document_justificatiu"
-            value={item.document_justificatiu}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Document justificatiu</Form.Label>
+          <Form.Control type="file" name="document_justificatiu" />
+        </Form.Group>
 
         <InputGroup className="mb-2">
           <InputGroup.Text>Professor</InputGroup.Text>
