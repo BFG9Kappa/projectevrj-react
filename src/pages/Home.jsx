@@ -3,10 +3,11 @@ import NavBar from '../components/NavBar';
 
 function Home() {
   return (
-    <div>
+    <>
       <NavBar />
-      <h1>Benvingut a la pàgina d'inici</h1>
-    </div>
+      <h1>Benvingut/da</h1>
+      <p>Aplicacio per la gestio de les baixes y absències del equip docent.</p>
+    </>
   );
 }
 
