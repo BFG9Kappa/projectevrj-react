@@ -33,6 +33,11 @@ function SortidesCurComponent() {
     history.push("/sortidescurriculars/edit/"+ id, { itemValues });
   };
 
+  const handleDuplicar = (id) => {
+    const itemValues = getItemValues(id);
+    history.push("/sortidescurriculars/duplicar/"+ id, { itemValues });
+  };
+
   const handleDelete = (id) => {
     axios
       .delete("http://localhost:5000/api/sortidescurriculars/delete/" + id)
@@ -85,6 +90,7 @@ function SortidesCurComponent() {
               <td>
               <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
               <Button variant="danger" onClick={() => handleDelete(item._id)}>Esborrar</Button>{" "}
+              <Button variant="danger" onClick={() => handleDuplicar(item._id)}>Duplicar</Button>{" "}
               </td>
             </tr>
           ))}
