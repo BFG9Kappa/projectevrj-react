@@ -88,9 +88,9 @@ function SortidesCurComponent() {
               <td>{item.hora_arribada}</td>
               <td>{item.estat}</td>
               <td>
-              <Button variant="primary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
+              <Button variant="secondary" onClick={() => handleUpdate(item._id)}>Editar</Button>{" "}
+              <Button variant="warning" onClick={() => handleDuplicar(item._id)}>Duplicar</Button>{" "}
               <Button variant="danger" onClick={() => handleDelete(item._id)}>Esborrar</Button>{" "}
-              <Button variant="danger" onClick={() => handleDuplicar(item._id)}>Duplicar</Button>{" "}
               </td>
             </tr>
           ))}
