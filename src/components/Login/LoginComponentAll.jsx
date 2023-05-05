@@ -1,41 +1,38 @@
 import React, { useState } from "react";
 
 const LoginComponentAll = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-  
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-      try {
-        const response = await fetch("http://localhost:5000/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ email, password }),
-        });
-  
-        if (!response.ok) {
-          const error = await response.json();
-          setErrorMessage(error.error);
-          return;
-        }
-        else
-        {
-          const bodyJSON = await response.json();
-          const token = bodyJSON.tokenSession;
-          sessionStorage.setItem('token', token);
-          window.location.href = "/";
-        }
-      } catch (error) {
-        console.log(error);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const response = await fetch("http://localhost:5000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        setErrorMessage(error.error);
+        return;
+      } else {
+        const bodyJSON = await response.json();
+        const token = bodyJSON.tokenSession;
+        sessionStorage.setItem("token", token);
+        window.location.href = "/";
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <div className="container">
-      <header>{/* include('../partials/header') */}</header>
+    <>
       <div className="row">
         <div className="col-md-4 offset-md-4">
           <div className="login-form bg-light mt-4 p-4">
@@ -61,7 +58,10 @@ const LoginComponentAll = () => {
                   className="form-control"
                 />
               </div>
-              <div className="col-12" style={{ textAlign: "center", paddingTop: "1em" }}>
+              <div
+                className="col-12"
+                style={{ textAlign: "center", paddingTop: "1em" }}
+              >
                 <button type="submit" className="btn btn-dark float-end">
                   Accedir
                 </button>
@@ -81,8 +81,7 @@ const LoginComponentAll = () => {
           )}
         </div>
       </div>
-      <footer>{/* include('../partials/footer') */}</footer>
-    </div>
+    </>
   );
 };
 

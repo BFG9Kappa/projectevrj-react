@@ -24,15 +24,6 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
     });
   };
 
-  const handleSelectChange = (event) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-    
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -63,7 +54,6 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
         }
       });
   };
-  
 
   return (
     <>
@@ -79,10 +69,11 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
         </InputGroup>
 
         <Form.Select
+          className="mb-2"
           name="hora_inici_absnoprevista"
           aria-label="hora_inici_absnoprevista"
           value={formData.hora_inici_absnoprevista}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora inici absència</option>
           <optgroup label="Diurn">
@@ -105,10 +96,11 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="hora_final_absnoprevista"
           aria-label="hora_final_absnoprevista"
           value={formData.hora_final_absnoprevista}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora final absència</option>
           <optgroup label="Diurn">
@@ -140,15 +132,10 @@ function AbsNoPreComponentCreate({ setValidationErrors }) {
           />
         </InputGroup>
 
-        <InputGroup className="mb-2">
-          <InputGroup.Text>Document justificatiu</InputGroup.Text>
-          <Form.Control
-            type="text"
-            name="document_justificatiu"
-            value={formData.document_justificatiu}
-            onChange={handleInputChange}
-          />
-        </InputGroup>
+        <Form.Group controlId="formFile" className="mb-3">
+          <Form.Label>Document justificatiu</Form.Label>
+          <Form.Control type="file" name="document_justificatiu" />
+        </Form.Group>
 
         <InputGroup className="mb-2">
           <InputGroup.Text>Professor</InputGroup.Text>

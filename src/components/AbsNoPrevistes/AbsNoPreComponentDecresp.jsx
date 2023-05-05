@@ -238,12 +238,13 @@ function AbsNoPreComponentDecresp() {
         </InputGroup>
 
         <Form.Select
+          className="mb-2"
           name="hIni"
           aria-label="hIni"
           value={formData.hIni}
           onChange={handleInputChange}
         >
-          <option>Hora inici absencia</option>
+          <option>Hora inici absència</option>
           <optgroup label="Diurn">
             <option value="08:00">08:00</option>
             <option value="09:00">09:00</option>
@@ -265,12 +266,13 @@ function AbsNoPreComponentDecresp() {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="hFi"
           aria-label="hFi"
           value={formData.hFi}
           onChange={handleInputChange}
         >
-          <option>Hora fi absencia</option>
+          <option>Hora fi absència</option>
           <optgroup label="Diurn">
             <option value="08:00">08:00</option>
             <option value="09:00">09:00</option>
