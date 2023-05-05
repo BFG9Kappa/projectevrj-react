@@ -16,7 +16,9 @@ function NavBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
+            {/*
             {isAuth && <Nav.Link href="#link">Horari</Nav.Link>}
+            */}
             {isAuth && <Nav.Link href="/absprevistes">Absències previstes</Nav.Link>}
             {isAuth && <Nav.Link href="/absnoprevistes">Absències no previstes</Nav.Link>}
             {isAuth && <Nav.Link href="/baixesmediques">Baixes mèdiques</Nav.Link>}

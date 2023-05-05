@@ -47,14 +47,6 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
     });
   };
 
-  const handleSelectChange = (event) => {
-    const { name, value } = event.target;
-    setItem({
-      ...item,
-      [name]: value,
-    });
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -103,7 +95,7 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
           name="hora_inici_absnoprevista"
           aria-label="hora_inici_absnoprevista"
           value={item.hora_inici_absnoprevista}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora inici absència</option>
           <optgroup label="Diurn">
@@ -129,7 +121,7 @@ function AbsNoPreComponentUpdate({ setValidationErrors }) {
           name="hora_final_absnoprevista"
           aria-label="hora_final_absnoprevista"
           value={item.hora_final_absnoprevista}
-          onChange={handleSelectChange}
+          onChange={handleInputChange}
         >
           <option>Hora final absència</option>
           <optgroup label="Diurn">

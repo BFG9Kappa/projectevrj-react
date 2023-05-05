@@ -53,7 +53,7 @@ function SortidesCurComponentUpdate({ setValidationErrors }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/sortidescurriculars/update/"+ id, item)
+      .put("http://localhost:5000/api/sortidescurriculars/update/" + id, item)
       .then((response) => {
         console.log(response.data);
         setItem({
@@ -84,7 +84,6 @@ function SortidesCurComponentUpdate({ setValidationErrors }) {
         }
       });
   };
-
 
   return (
     <>
@@ -160,6 +159,7 @@ function SortidesCurComponentUpdate({ setValidationErrors }) {
         </InputGroup>
 
         <Form.Select
+          className="mb-2"
           name="hora_inici"
           aria-label="hora_inici"
           value={item.hora_inici}
@@ -186,6 +186,7 @@ function SortidesCurComponentUpdate({ setValidationErrors }) {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="hora_arribada"
           aria-label="hora_arribada"
           value={item.hora_arribada}
@@ -212,6 +213,7 @@ function SortidesCurComponentUpdate({ setValidationErrors }) {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="estat"
           aria-label="estat"
           value={item.estat}
