@@ -22,7 +22,7 @@ function NavBar() {
             {isAuth && <Nav.Link href="/baixesmediques">Baixes mèdiques</Nav.Link>}
             {isAuth && <Nav.Link href="/sortidescurriculars">Sortides curriculars</Nav.Link>}
             {!isAuth && <Nav.Link href="/auth/login">Accedir</Nav.Link>}
-            {isAuth && <Nav.Link onClick={function() { setAuth(false); sessionStorage.removeItem('token'); history.go("/");}}>Log out</Nav.Link>}
+            {isAuth && <Nav.Link onClick={function() { setAuth(false); sessionStorage.removeItem('token'); history.go("/");}}>Sortir</Nav.Link>}
             {/*
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>

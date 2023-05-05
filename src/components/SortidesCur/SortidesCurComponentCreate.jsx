@@ -35,7 +35,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
       [name]: value,
     });
   };
-    
+
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -145,6 +145,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
         </InputGroup>
 
         <Form.Select
+          className="mb-2"
           name="hora_inici"
           aria-label="hora_inici"
           value={formData.hora_inici}
@@ -171,6 +172,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="hora_arribada"
           aria-label="hora_arribada"
           value={formData.hora_arribada}
@@ -197,6 +199,7 @@ function SortidesCurComponentCreate({ setValidationErrors }) {
         </Form.Select>
 
         <Form.Select
+          className="mb-2"
           name="estat"
           aria-label="estat"
           value={formData.estat}
