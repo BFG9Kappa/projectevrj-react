@@ -3,9 +3,10 @@ import axios from "axios";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
+import { useHistory } from "react-router-dom";
 
-function SortidesCurComponentCreate() {
-  const [sortidaData, setSortidaData] = useState([]);
+function SortidesCurComponentCreate({ setValidationErrors }) {
+  const history = useHistory();
   const [formData, setFormData] = useState({
     data_sortida: "",
     email: "",
@@ -27,6 +28,14 @@ function SortidesCurComponentCreate() {
     });
   };
 
+  const handleSelectChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+    
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
@@ -45,10 +54,20 @@ function SortidesCurComponentCreate() {
           hora_arribada: "",
           estat: "",
         });
-        setSortidaData([...sortidaData, response.data]);
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
+        history.push("/sortidescurriculars");
       })
       .catch((error) => {
         console.log(error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
 
@@ -129,7 +148,7 @@ function SortidesCurComponentCreate() {
           name="hora_inici"
           aria-label="hora_inici"
           value={formData.hora_inici}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Hora de sortida</option>
           <optgroup label="Diurn">
@@ -155,7 +174,7 @@ function SortidesCurComponentCreate() {
           name="hora_arribada"
           aria-label="hora_arribada"
           value={formData.hora_arribada}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Hora d'arribada</option>
           <optgroup label="Diurn">
@@ -181,7 +200,7 @@ function SortidesCurComponentCreate() {
           name="estat"
           aria-label="estat"
           value={formData.estat}
-          onChange={handleInputChange}
+          onChange={handleSelectChange}
         >
           <option>Estat</option>
           <option value="Proposada">Proposada</option>

@@ -6,10 +6,9 @@ import InputGroup from "react-bootstrap/InputGroup";
 import Button from "react-bootstrap/Button";
 import moment from "moment";
 
-function AbsPreComponentUpdate() {
+function AbsPreComponentUpdate({ setValidationErrors }) {
   const history = useHistory();
   const { id } = useParams(); // Recupera el valor de id pasado como parte de la ruta
-
   const [item, setItem] = useState({
     data_absprevista: "",
     motiu_abs: "",
@@ -48,13 +47,28 @@ function AbsPreComponentUpdate() {
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put("http://localhost:5000/api/absprevistes/update/" + id, item)
+      .put("http://localhost:5000/api/absprevistes/update/"+ id, item)
       .then((response) => {
         console.log(response.data);
+        setItem({
+          data_absprevista: "",
+          motiu_abs: "",
+          user: "",
+        });
+        setValidationErrors([]);
+        //setAbsNoPreData([...setAbsNoPreData, response.data]);
         history.push("/absprevistes");
       })
       .catch((error) => {
         console.log(error);
+        if (
+          error.response &&
+          error.response.data &&
+          error.response.data.errors
+        ) {
+          const validationErrors = error.response.data.errors;
+          setValidationErrors(validationErrors);
+        }
       });
   };
 

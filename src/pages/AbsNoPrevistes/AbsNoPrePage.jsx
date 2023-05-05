@@ -25,7 +25,7 @@ function AbsNoPrePage() {
         <Button variant="primary" onClick={handleDecrespClick}>Declaració responsable</Button>{' '}
         <br />
         <br />
-        <AbsNoPreComponentAll />
+        <AbsNoPreComponentAll/>
       </div>
     </>
   );
